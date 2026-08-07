@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { BadgeCheck, HandHeart, HeartHandshake, ShieldCheck } from "lucide-react";
+import {
+  BadgeCheck,
+  HandHeart,
+  HeartHandshake,
+  ShieldCheck,
+} from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/layout/PageHero";
 import { ContentSection } from "@/components/patterns/ContentSection";
@@ -58,18 +63,21 @@ export default function AboutPage() {
         />
       }
     >
-      <ImageTextSection eyebrow="Our Story" title="Why We Started Pink City Healthcare">
+      <ImageTextSection
+        eyebrow="Our Story"
+        title="Why We Started Pink City Healthcare"
+      >
         <p>{siteConfig.story}</p>
         <p>
           Hospitals are built for emergencies. But most healthcare — recovery,
-          aging, chronic care — happens at home, in familiar surroundings,
-          with people who know and love the patient. That&apos;s the gap we
-          set out to close in Jaipur.
+          aging, chronic care — happens at home, in familiar surroundings, with
+          people who know and love the patient. That&apos;s the gap we set out
+          to close in Jaipur.
         </p>
         <p>
-          Every nurse, caregiver, and therapist we bring into a home is
-          chosen for the same two things: clinical skill, and the patience to
-          treat a family&apos;s home like the personal space it is.
+          Every nurse, caregiver, and therapist we bring into a home is chosen
+          for the same two things: clinical skill, and the patience to treat a
+          family&apos;s home like the personal space it is.
         </p>
       </ImageTextSection>
 
@@ -90,10 +98,13 @@ export default function AboutPage() {
         </p>
       </ImageTextSection>
 
-      <ContentSection eyebrow="Our Vision" title="A Trusted Name in Home Healthcare Across Jaipur">
+      <ContentSection
+        eyebrow="Our Vision"
+        title="A Trusted Name in Home Healthcare Across Jaipur"
+      >
         <p>
-          We want every family in Jaipur to think of Pink City Healthcare
-          first — not because we&apos;re the loudest, but because we&apos;re
+          We want every family in Jaipur to think of Pink City Healthcare first
+          — not because we&apos;re the loudest, but because we&apos;re
           consistently reliable, verified, and present when it matters.
         </p>
       </ContentSection>
@@ -111,13 +122,15 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <ContentSection eyebrow="Why Choose Us" title="Why Families Trust Pink City Healthcare">
+      <ContentSection
+        eyebrow="Why Choose Us"
+        title="Why Families Trust Pink City Healthcare"
+      >
         <p>
           Every caregiver we place is background-verified and clinically
-          trained. Our coordinators are based in Jaipur and reachable 24×7,
-          so a familiar voice is always a phone call away. And every care
-          plan comes with clear, upfront pricing — no surprises, no hidden
-          fees.
+          trained. Our coordinators are based in Jaipur and reachable 24×7, so a
+          familiar voice is always a phone call away. And every care plan comes
+          with clear, upfront pricing — no surprises, no hidden fees.
         </p>
       </ContentSection>
 
@@ -126,11 +139,11 @@ export default function AboutPage() {
         title="A Personal Note From Mr. Rizwan Khan"
       >
         <p>
-          I started Pink City Healthcare after seeing how difficult it was
-          for families in Jaipur to find reliable, professional care at
-          home — not just a hospital referral, but someone they could trust
-          inside their own house. My goal has always been simple: every
-          family we work with should feel as looked after as our own.
+          I started Pink City Healthcare after seeing how difficult it was for
+          families in Jaipur to find reliable, professional care at home — not
+          just a hospital referral, but someone they could trust inside their
+          own house. My goal has always been simple: every family we work with
+          should feel as looked after as our own.
         </p>
         <p className="text-foreground">
           <strong className="font-semibold">{siteConfig.founder.name}</strong>
@@ -142,7 +155,7 @@ export default function AboutPage() {
       <CTASection
         title="Ready to Talk to Our Care Team?"
         description="Speak with a coordinator today and we'll help you find the right care plan for your family."
-        primaryCta={{ label: "Book Appointment", href: "/book-appointment" }}
+        primaryCta={{ label: "Book Appointment", href: "/appointment" }}
         secondaryCta={{ label: "Call Now", href: phoneHref }}
       />
     </PageLayout>

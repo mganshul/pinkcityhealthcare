@@ -4,7 +4,7 @@ The marketing website for Pink City Healthcare — a home healthcare provider in
 
 ## Overview
 
-A production-grade Next.js 15 site: a fully built marketing homepage, an About page, a services hub with 14 individually built service detail pages generated from one shared template, and a Supabase-backed foundation for appointment booking and contact submissions (schema and server-side plumbing are in place; the public-facing forms are the next phase of work).
+A production-grade Next.js 15 site: a fully built marketing homepage, an About page, a services hub with 14 individually built service detail pages generated from one shared template, a live appointment booking system backed by Supabase, and a Supabase-backed foundation for contact submissions and future content (schema and server-side plumbing are in place; the public-facing contact form is the next phase of work).
 
 ## Features
 
@@ -12,6 +12,7 @@ A production-grade Next.js 15 site: a fully built marketing homepage, an About p
 - **About page** (`/about`) — story, mission, vision, core values, founder message.
 - **Services hub** (`/services`) — reads live from the single service catalog; no duplicated data.
 - **14 service detail pages** (`/services/<slug>`) — one shared, frozen template (`ServicePageTemplate`) driving unique, non-duplicated content per service, with deliberate internal cross-linking between related services.
+- **Appointment booking** (`/appointment`) — React Hook Form + Zod client validation backed by the same Server Action and schema used server-side, inserts into Supabase, and sends an admin notification email (plus a patient confirmation when an email is provided).
 - **Backend foundation** — typed Supabase clients, Zod-validated Server Actions, and a documented SQL schema + Row Level Security policy set for appointments, contact messages, blog content, testimonials, gallery, and a future admin dashboard. See [`BACKEND_ARCHITECTURE.md`](./BACKEND_ARCHITECTURE.md).
 
 ## Tech stack

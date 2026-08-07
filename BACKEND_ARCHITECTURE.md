@@ -71,23 +71,29 @@ Migration files, in apply order:
 
 ## Server Actions
 
-`src/lib/actions/appointment.ts` and `contact.ts` each export a Server Action shaped as `(prevState, formData) => Promise<State>` — the exact signature React's `useActionState` expects. A future form component wires up as:
+`src/lib/actions/appointment.ts` and `contact.ts` each export a Server Action shaped as `(prevState, formData) => Promise<State>`. A `"use server"` file may only export async functions, so each action's initial/idle `*ActionState` value is defined in its calling Client Component, not exported alongside the action.
+
+`AppointmentForm.tsx` (Milestone 28) calls `submitAppointmentAction` directly inside `startTransition`, rather than via `useActionState` — the form needed React Hook Form for client-side field validation (same `appointmentFormSchema`, via `@hookform/resolvers/zod`, so client and server can never disagree) and controlled inputs for the Radix-based `Select`/`Checkbox`, so it builds a `FormData` from RHF's validated values and calls the action manually:
 
 ```tsx
 "use client";
-import { useActionState } from "react";
-import {
-  submitAppointmentAction,
-  initialAppointmentActionState,
-} from "@/lib/actions/appointment";
+const initialAppointmentActionState: AppointmentActionState = {
+  status: "idle",
+  message: "",
+};
+const [actionState, setActionState] = useState(initialAppointmentActionState);
+const [isPending, startTransition] = useTransition();
 
-const [state, formAction, isPending] = useActionState(
-  submitAppointmentAction,
-  initialAppointmentActionState
-);
+const onSubmit = form.handleSubmit((values) => {
+  const formData = new FormData();
+  // ...append each field...
+  startTransition(async () => {
+    setActionState(await submitAppointmentAction(actionState, formData));
+  });
+});
 ```
 
-with zero changes required in `lib/actions/`. Each action:
+A form that doesn't need React Hook Form could still use the plain `useActionState(submitAppointmentAction, initialState)` pattern with no changes to `lib/actions/` — only the initial-state constant would need to be defined locally, the same way. Each action:
 
 1. Reads raw values off `FormData` (all values are strings/`File`; `readFormValue()` coerces safely).
 2. Validates with the matching Zod schema via `safeParse`.
@@ -99,21 +105,18 @@ with zero changes required in `lib/actions/`. Each action:
 
 Zod schemas in `src/schemas/` are the single point where "is this submission acceptable" is decided — both `lib/actions/` (server-side, authoritative) and any future client-side form (via `@hookform/resolvers/zod` + React Hook Form, already in the dependency tree) will import the _same_ schema, so client-side and server-side validation can never disagree.
 
-- `appointmentFormSchema` — name, Indian mobile number (regex), optional email, `serviceSlug` checked against the real service catalog, `preferredDate` (must be today or later, `YYYY-MM-DD`), optional `preferredTime`/`message`, required `address`/`city`.
+- `appointmentFormSchema` — name, Indian mobile number (regex), optional email, `serviceSlug` checked against the real service catalog, `preferredDate` (must be today or later, `YYYY-MM-DD`), required `preferredTime` (`HH:MM`), optional `patientAge` (0–120), required `address`/`city`, optional `message`, required `consentToContact` (must be `true`).
 - `contactFormSchema` — name, required email, optional phone, optional subject, message (10–2000 chars).
 
 Both intentionally validate with hand-written regexes (`emailRegex`, `phoneRegex`) rather than Zod v4's newer `z.email()` top-level helper, to sidestep that API's ongoing churn in this Zod version and keep the schemas dependency-light and stable.
 
-## Email flow (planned, not implemented)
+## Email flow
 
-`nodemailer` is already a project dependency but nothing calls it yet — sending email is explicitly out of scope for this milestone. The intended flow, for when it's built:
+Implemented for appointments in Milestone 28 (`src/lib/email/`); contact-message email is not built yet.
 
-1. A Server Action (`submitAppointmentAction` / `submitContactAction`) successfully inserts the row.
-2. Before returning the success state, it calls a new `sendAppointmentNotification()` / `sendContactNotification()` helper (would live in `src/lib/email/`) that sends a notification email to `siteConfig.contact.email` via `nodemailer`, using Hostinger's SMTP credentials.
-3. Optionally, a second email confirms receipt to the visitor's submitted address.
-4. Email failures must never fail the booking/message itself — the row is already safely in Postgres; email is a notification convenience layered on top, not a dependency of the write path.
-
-`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, and `SMTP_PASS` are already reserved in `.env.example` for this; nothing reads them yet, and an `EMAIL_FROM` var will be added alongside the actual implementation.
+- `src/lib/email/transporter.ts` — `getEmailTransporter()` builds a `nodemailer` transport from `SMTP_HOST`/`PORT`/`USER`/`PASS`, or returns `null` if any are unset (logged as a warning, not an error). `getEmailFromAddress()` reads `EMAIL_FROM`, falling back to `SMTP_USER`.
+- `src/lib/email/appointment.ts` — `sendAppointmentAdminNotification()` (always, to `siteConfig.contact.email`) and `sendAppointmentConfirmationEmail()` (only if the visitor provided an email). Both are called from `submitAppointmentAction` after the row is already inserted, and both catch their own errors internally — a failed or unconfigured email never fails the booking, which is already safely in Postgres by that point.
+- Nothing analogous exists yet for `contact_messages`; `submitContactAction` still only writes to the database.
 
 ## Security
 
@@ -130,7 +133,7 @@ Both intentionally validate with hand-written regexes (`emailRegex`, `phoneRegex
 ## Deployment
 
 - Supabase: create a project, run the migrations (`supabase db push`, see above), then copy Project Settings → API values into the three env vars in `.env.example`.
-- Hostinger: set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` in the hosting environment's env var / secrets panel — never commit `.env.local` (already covered by the repo's `.env*` gitignore rule).
+- Hostinger: set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, and (for appointment emails) `SMTP_HOST`/`SMTP_PORT`/`SMTP_USER`/`SMTP_PASS`/`EMAIL_FROM` in the hosting environment's env var / secrets panel — never commit `.env.local` (already covered by the repo's `.env*` gitignore rule).
 - Recommended split: separate Supabase projects for local/staging vs. production, so migrations can be tested against staging before `db push` touches production data.
 - A leaked `NEXT_PUBLIC_SUPABASE_ANON_KEY` is expected to be public (it ships in the browser bundle by design) — RLS is what keeps that safe. A leaked `SUPABASE_SERVICE_ROLE_KEY` is a full database compromise; it must only ever exist as a server-side env var.
 

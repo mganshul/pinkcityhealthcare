@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { BadgeCheck, CalendarCheck, Clock, Phone, ShieldCheck } from "lucide-react";
+import {
+  BadgeCheck,
+  CalendarCheck,
+  Clock,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/common/Container";
 import { TrustBadge } from "@/components/common/TrustBadge";
@@ -34,10 +40,10 @@ export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-[#050B24] pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
+    <section className="from-primary via-primary-dark relative overflow-hidden bg-gradient-to-br to-[#050B24] pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
       <div
         aria-hidden="true"
-        className="absolute top-0 right-0 size-[32rem] -translate-y-1/4 translate-x-1/4 rounded-full bg-white/10 blur-3xl lg:size-[40rem]"
+        className="absolute top-0 right-0 size-[32rem] translate-x-1/4 -translate-y-1/4 rounded-full bg-white/10 blur-3xl lg:size-[40rem]"
       />
       <div
         aria-hidden="true"
@@ -75,9 +81,9 @@ export function Hero() {
             variants={itemVariants}
             className="max-w-lg text-lg text-balance text-white/90"
           >
-            Skilled nurses, caregivers, and therapists trained for ICU
-            support, post-surgery recovery, physiotherapy, and elder care —
-            matched to your family within 24 hours.
+            Skilled nurses, caregivers, and therapists trained for ICU support,
+            post-surgery recovery, physiotherapy, and elder care — matched to
+            your family within 24 hours.
           </motion.p>
 
           <motion.div
@@ -90,7 +96,7 @@ export function Hero() {
               variant="secondary"
               className="h-12 gap-2 px-7 text-base shadow-[0_10px_30px_-8px_rgba(255,255,255,0.35)]"
             >
-              <Link href="/book-appointment">
+              <Link href="/appointment">
                 <CalendarCheck className="size-4" aria-hidden="true" />
                 Book Appointment
               </Link>

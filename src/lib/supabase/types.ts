@@ -33,9 +33,11 @@ export interface Database {
           service_slug: string;
           preferred_date: string;
           preferred_time: string | null;
+          patient_age: number | null;
           address: string;
           city: string;
           message: string | null;
+          consent_to_contact: boolean;
           status: AppointmentStatus;
           source: string;
           created_at: string;
@@ -49,9 +51,11 @@ export interface Database {
           service_slug: string;
           preferred_date: string;
           preferred_time?: string | null;
+          patient_age?: number | null;
           address: string;
           city?: string;
           message?: string | null;
+          consent_to_contact?: boolean;
           status?: AppointmentStatus;
           source?: string;
           created_at?: string;
@@ -65,9 +69,11 @@ export interface Database {
           service_slug?: string;
           preferred_date?: string;
           preferred_time?: string | null;
+          patient_age?: number | null;
           address?: string;
           city?: string;
           message?: string | null;
+          consent_to_contact?: boolean;
           status?: AppointmentStatus;
           source?: string;
           created_at?: string;

@@ -22,10 +22,12 @@ export async function createAppointment(
     email: input.email || null,
     service_slug: input.serviceSlug,
     preferred_date: input.preferredDate,
-    preferred_time: input.preferredTime || null,
+    preferred_time: input.preferredTime,
+    patient_age: input.patientAge ?? null,
     address: input.address,
     city: input.city,
     message: input.message || null,
+    consent_to_contact: input.consentToContact,
   };
 
   const { data, error } = await supabase

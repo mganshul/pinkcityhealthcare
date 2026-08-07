@@ -57,7 +57,7 @@ export function UrgentCareStrip() {
               variant="outline"
               className="h-12 gap-2 border-white/25 bg-transparent px-6 text-base text-white hover:bg-white/10 hover:text-white"
             >
-              <Link href="/book-appointment">Book Appointment</Link>
+              <Link href="/appointment">Book Appointment</Link>
             </Button>
           </div>
           <p className="flex items-center gap-1.5 text-xs text-white/80 sm:ml-1">

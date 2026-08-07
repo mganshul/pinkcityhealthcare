@@ -16,7 +16,7 @@ export function MobileStickyCta() {
         </a>
       </Button>
       <Button asChild size="lg" className="flex-1 gap-2">
-        <Link href="/book-appointment">
+        <Link href="/appointment">
           <CalendarCheck className="size-4" aria-hidden="true" />
           Book Appointment
         </Link>

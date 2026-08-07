@@ -23,7 +23,7 @@ interface ServicePageTemplateProps {
 // src/data/service-pages/, never a new page-level component.
 export function ServicePageTemplate({ data }: ServicePageTemplateProps) {
   const relatedServices = services.filter((service) =>
-    data.relatedServices.includes(service.href),
+    data.relatedServices.includes(service.href)
   );
 
   return (
@@ -66,14 +66,23 @@ export function ServicePageTemplate({ data }: ServicePageTemplateProps) {
       </Section>
 
       <Section id="process" className="bg-secondary/40">
-        <SectionHeader eyebrow="Our Process" title={`How ${data.title} Works`} />
+        <SectionHeader
+          eyebrow="Our Process"
+          title={`How ${data.title} Works`}
+        />
         <ProcessTimeline steps={data.process} />
       </Section>
 
       <Section id="why-choose-us">
-        <SectionHeader eyebrow="Why Choose Us" title={`Why Choose ${siteConfig.name}`} />
+        <SectionHeader
+          eyebrow="Why Choose Us"
+          title={`Why Choose ${siteConfig.name}`}
+        />
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <TrustBadge icon={ShieldCheck} label="Verified & Background-Checked" />
+          <TrustBadge
+            icon={ShieldCheck}
+            label="Verified & Background-Checked"
+          />
           <TrustBadge icon={Clock} label="24×7 Support" />
           <TrustBadge icon={BadgeCheck} label="Transparent Pricing" />
         </div>
@@ -104,7 +113,7 @@ export function ServicePageTemplate({ data }: ServicePageTemplateProps) {
       <CTASection
         title={`Ready to Book ${data.title}?`}
         description="Speak with a care coordinator today and we'll help you get started."
-        primaryCta={{ label: "Book Appointment", href: "/book-appointment" }}
+        primaryCta={{ label: "Book Appointment", href: "/appointment" }}
         secondaryCta={{ label: "Call Now", href: phoneHref }}
       />
     </PageLayout>

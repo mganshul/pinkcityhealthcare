@@ -10,6 +10,7 @@ const validServiceSlugs = new Set(
 );
 
 const dateOnlyRegex = /^\d{4}-\d{2}-\d{2}$/;
+const timeOnlyRegex = /^([01]\d|2[0-3]):[0-5]\d$/;
 
 export const appointmentFormSchema = z.object({
   fullName: z
@@ -51,7 +52,12 @@ export const appointmentFormSchema = z.object({
   preferredTime: z
     .string()
     .trim()
-    .max(60, "Preferred time is too long.")
+    .regex(timeOnlyRegex, "Enter a valid time (HH:MM)."),
+  patientAge: z
+    .number()
+    .int("Age must be a whole number.")
+    .min(0, "Age cannot be negative.")
+    .max(120, "Enter a valid age.")
     .optional(),
   address: z
     .string()
@@ -64,6 +70,10 @@ export const appointmentFormSchema = z.object({
     .min(2, "City is required.")
     .max(100, "City is too long."),
   message: z.string().trim().max(1000, "Message is too long.").optional(),
+  consentToContact: z.boolean().refine((value) => value === true, {
+    message:
+      "Please confirm you agree to be contacted regarding your appointment.",
+  }),
 });
 
 export type AppointmentFormInput = z.infer<typeof appointmentFormSchema>;

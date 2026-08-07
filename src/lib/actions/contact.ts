@@ -9,11 +9,6 @@ export interface ContactActionState {
   fieldErrors?: Partial<Record<keyof ContactFormInput, string>>;
 }
 
-export const initialContactActionState: ContactActionState = {
-  status: "idle",
-  message: "",
-};
-
 function readFormValue(formData: FormData, key: string): string {
   const value = formData.get(key);
   return typeof value === "string" ? value : "";
@@ -21,9 +16,10 @@ function readFormValue(formData: FormData, key: string): string {
 
 /**
  * Matches the (prevState, formData) => State shape React's useActionState
- * expects, so a future <ContactForm> can wire this up directly via
- * `useActionState(submitContactAction, initialContactActionState)` with no
- * changes here.
+ * expects. A "use server" file may only export async functions — define
+ * the idle initial ContactActionState in the calling Client Component
+ * instead of as a const export here (see AppointmentForm.tsx/
+ * AppointmentActionState for the same pattern and why it's necessary).
  */
 export async function submitContactAction(
   _prevState: ContactActionState,

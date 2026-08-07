@@ -68,7 +68,7 @@ function MobileNavAccordionGroup({
                   "block rounded-lg px-2 py-2.5 text-sm",
                   isActive(item.href)
                     ? "text-primary font-semibold"
-                    : "text-muted-foreground",
+                    : "text-muted-foreground"
                 )}
               >
                 {item.label}
@@ -101,7 +101,7 @@ export function MobileNav({ transparent = false }: MobileNavProps) {
           size="icon-lg"
           className={cn(
             "lg:hidden",
-            transparent && "text-white hover:bg-white/10 hover:text-white",
+            transparent && "text-white hover:bg-white/10 hover:text-white"
           )}
           aria-label="Open menu"
         >
@@ -127,7 +127,7 @@ export function MobileNav({ transparent = false }: MobileNavProps) {
               aria-current={isActive("/") ? "page" : undefined}
               className={cn(
                 "block rounded-lg px-3 py-2.5 text-sm font-semibold",
-                isActive("/") ? "text-primary bg-secondary" : "text-foreground",
+                isActive("/") ? "text-primary bg-secondary" : "text-foreground"
               )}
             >
               Home
@@ -162,7 +162,7 @@ export function MobileNav({ transparent = false }: MobileNavProps) {
                     "block rounded-lg px-3 py-2.5 text-sm font-semibold",
                     isActive(link.href)
                       ? "text-primary bg-secondary"
-                      : "text-foreground",
+                      : "text-foreground"
                   )}
                 >
                   {link.label}
@@ -179,7 +179,7 @@ export function MobileNav({ transparent = false }: MobileNavProps) {
             </a>
           </Button>
           <Button asChild size="lg">
-            <Link href="/book-appointment">Book Appointment</Link>
+            <Link href="/appointment">Book Appointment</Link>
           </Button>
         </div>
       </SheetContent>

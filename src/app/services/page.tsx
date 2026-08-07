@@ -30,12 +30,12 @@ export default function ServicesPage() {
     >
       <ContentSection title="Care Built Around Your Family, Not a Package">
         <p>
-          Home healthcare brings hospital-quality medical support directly
-          into your family&apos;s living room — no waiting rooms, no
-          unfamiliar surroundings. We proudly serve families across{" "}
-          {siteConfig.serviceArea.primary}, matching each one with a care
-          plan built around their specific needs rather than a
-          one-size-fits-all package.
+          Home healthcare brings hospital-quality medical support directly into
+          your family&apos;s living room — no waiting rooms, no unfamiliar
+          surroundings. We proudly serve families across{" "}
+          {siteConfig.serviceArea.primary}, matching each one with a care plan
+          built around their specific needs rather than a one-size-fits-all
+          package.
         </p>
       </ContentSection>
 
@@ -58,12 +58,15 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      <ContentSection eyebrow="How We Help" title="The Same Simple Process, Every Time">
+      <ContentSection
+        eyebrow="How We Help"
+        title="The Same Simple Process, Every Time"
+      >
         <p>
-          Every service starts the same way: you book an appointment, our
-          care coordinator understands your needs in a free consultation, a
-          verified nurse or caregiver is assigned, and care begins at your
-          home — usually within 24 hours.
+          Every service starts the same way: you book an appointment, our care
+          coordinator understands your needs in a free consultation, a verified
+          nurse or caregiver is assigned, and care begins at your home — usually
+          within 24 hours.
         </p>
       </ContentSection>
 
@@ -74,8 +77,8 @@ export default function ServicesPage() {
       >
         <p>
           Many families aren&apos;t sure which service fits their situation —
-          and that&apos;s expected. Our healthcare coordinators are trained
-          to listen to your patient&apos;s condition and recommend the right
+          and that&apos;s expected. Our healthcare coordinators are trained to
+          listen to your patient&apos;s condition and recommend the right
           service, whether that&apos;s a single service or a combination of
           several.
         </p>
@@ -84,7 +87,7 @@ export default function ServicesPage() {
       <CTASection
         title="Ready to Get the Right Care for Your Family?"
         description="Speak with a care coordinator today and we'll help you choose the right service."
-        primaryCta={{ label: "Book Appointment", href: "/book-appointment" }}
+        primaryCta={{ label: "Book Appointment", href: "/appointment" }}
         secondaryCta={{ label: "Call Now", href: phoneHref }}
       />
     </PageLayout>
