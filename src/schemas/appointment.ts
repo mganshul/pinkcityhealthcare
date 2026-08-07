@@ -1,0 +1,69 @@
+import { z } from "zod";
+import { services } from "@/data/services";
+import { emailRegex, phoneRegex } from "@/schemas/shared";
+
+// Services live in code (src/data/services.ts), not the database, so there
+// is no DB foreign key to lean on — this Set is the actual guardrail against
+// a booking being submitted for a service that doesn't exist on the site.
+const validServiceSlugs = new Set(
+  services.map((service) => service.href.replace("/services/", ""))
+);
+
+const dateOnlyRegex = /^\d{4}-\d{2}-\d{2}$/;
+
+export const appointmentFormSchema = z.object({
+  fullName: z
+    .string()
+    .trim()
+    .min(2, "Please enter the patient's full name.")
+    .max(120, "Full name is too long."),
+  phone: z
+    .string()
+    .trim()
+    .regex(phoneRegex, "Enter a valid 10-digit Indian mobile number."),
+  email: z
+    .string()
+    .trim()
+    .max(254, "Email is too long.")
+    .optional()
+    .refine(
+      (value) => !value || emailRegex.test(value),
+      "Enter a valid email address."
+    ),
+  serviceSlug: z
+    .string()
+    .trim()
+    .min(1, "Please select a service.")
+    .refine(
+      (value) => validServiceSlugs.has(value),
+      "Please select a valid service."
+    ),
+  preferredDate: z
+    .string()
+    .trim()
+    .regex(dateOnlyRegex, "Enter a date in YYYY-MM-DD format.")
+    .refine((value) => !Number.isNaN(Date.parse(value)), "Enter a valid date.")
+    .refine((value) => {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return new Date(value) >= today;
+    }, "Preferred date cannot be in the past."),
+  preferredTime: z
+    .string()
+    .trim()
+    .max(60, "Preferred time is too long.")
+    .optional(),
+  address: z
+    .string()
+    .trim()
+    .min(10, "Please share the full address for the home visit.")
+    .max(500, "Address is too long."),
+  city: z
+    .string()
+    .trim()
+    .min(2, "City is required.")
+    .max(100, "City is too long."),
+  message: z.string().trim().max(1000, "Message is too long.").optional(),
+});
+
+export type AppointmentFormInput = z.infer<typeof appointmentFormSchema>;
