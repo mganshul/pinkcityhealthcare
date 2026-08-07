@@ -16,7 +16,7 @@ const socialPlatforms: SocialPlatform[] = [
 ];
 
 const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `${siteConfig.name}, ${siteConfig.contact.address.line1}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.pincode}`
+  `${siteConfig.name}, ${siteConfig.contact.address.line1}, ${siteConfig.contact.address.line2}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.pincode}`
 )}`;
 
 export function Footer() {
@@ -116,6 +116,7 @@ export function Footer() {
                 <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
                 <span>
                   {siteConfig.contact.address.line1},{" "}
+                  {siteConfig.contact.address.line2},{" "}
                   {siteConfig.contact.address.city},{" "}
                   {siteConfig.contact.address.state}{" "}
                   {siteConfig.contact.address.pincode}

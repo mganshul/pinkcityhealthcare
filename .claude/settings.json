@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(kill -9 129703 129704 129757)",
+      "Bash(ps -o pid,pcpu,etime,cmd -p 130230)"
+    ]
+  }
+}
