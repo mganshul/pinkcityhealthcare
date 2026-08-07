@@ -3,7 +3,9 @@ import {
   Bandage,
   CalendarCheck,
   Clock,
+  Dumbbell,
   HeartHandshake,
+  HeartPulse,
   MessageCircle,
   PersonStanding,
   ShieldCheck,
@@ -48,6 +50,18 @@ export const physiotherapyServicePage: ServicePageData = {
       title: "Licensed, Experienced Therapists",
       description:
         "Every therapist is qualified and experienced in home-based rehabilitation, not just clinical settings.",
+    },
+    {
+      icon: Dumbbell,
+      title: "Improved Mobility & Flexibility",
+      description:
+        "Guided movement therapy that steadily rebuilds strength, flexibility, and range of motion.",
+    },
+    {
+      icon: HeartPulse,
+      title: "Pain Management Without Frequent Hospital Visits",
+      description:
+        "Hands-on techniques and guided exercise help manage pain without repeated trips to a clinic.",
     },
   ],
   whoNeedsThis: [

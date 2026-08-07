@@ -6,7 +6,9 @@ import {
   Heart,
   HeartHandshake,
   MessageCircle,
+  Package,
   ShieldCheck,
+  Truck,
   UserRound,
   Clock,
 } from "lucide-react";
@@ -49,6 +51,18 @@ export const medicalEquipmentServicePage: ServicePageData = {
       title: "Guidance on Safe Use",
       description:
         "Clear instructions on operating and maintaining the equipment safely between visits.",
+    },
+    {
+      icon: Package,
+      title: "Wide Equipment Selection",
+      description:
+        "From hospital beds to oxygen concentrators, a full range of equipment to match the patient's care plan.",
+    },
+    {
+      icon: Truck,
+      title: "Quick Turnaround Delivery",
+      description:
+        "Equipment delivered promptly so your home is ready without delaying the patient's care.",
     },
   ],
   whoNeedsThis: [

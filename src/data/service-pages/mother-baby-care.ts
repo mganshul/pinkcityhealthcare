@@ -6,7 +6,9 @@ import {
   HandHeart,
   Heart,
   HeartHandshake,
+  Home,
   MessageCircle,
+  Milk,
   ShieldCheck,
   UserRound,
 } from "lucide-react";
@@ -49,6 +51,18 @@ export const motherBabyCareServicePage: ServicePageData = {
       title: "Round-the-Clock or Scheduled Support",
       description:
         "Support available for a few hours a day or overnight, depending on what the family needs most.",
+    },
+    {
+      icon: Milk,
+      title: "Lactation & Feeding Support",
+      description:
+        "Practical guidance on feeding routines to help mother and baby settle into a comfortable rhythm.",
+    },
+    {
+      icon: Home,
+      title: "Household Support for New Parents",
+      description:
+        "Assistance with baby-related tasks like sterilizing bottles and baby laundry, so parents can focus on rest and bonding.",
     },
   ],
   whoNeedsThis: [

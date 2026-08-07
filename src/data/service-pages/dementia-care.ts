@@ -6,8 +6,10 @@ import {
   HandHeart,
   HeartHandshake,
   MessageCircle,
+  Puzzle,
   ShieldCheck,
   UserRound,
+  Users,
 } from "lucide-react";
 import type { ServicePageData } from "@/types/service-page";
 
@@ -48,6 +50,18 @@ export const dementiaCareServicePage: ServicePageData = {
       title: "Flexible, Ongoing Support",
       description:
         "Support scheduled around the patient's needs, from daytime supervision to full-time care.",
+    },
+    {
+      icon: Puzzle,
+      title: "Cognitive Stimulation Support",
+      description:
+        "Simple activities and engagement designed to support memory and mental engagement, not just supervision.",
+    },
+    {
+      icon: Users,
+      title: "Support for Family Caregivers",
+      description:
+        "Guidance and respite for family members learning to navigate the emotional demands of dementia care.",
     },
   ],
   whoNeedsThis: [

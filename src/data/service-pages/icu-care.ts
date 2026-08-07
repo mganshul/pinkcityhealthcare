@@ -2,11 +2,13 @@ import {
   Activity,
   CalendarCheck,
   Clock,
+  Home,
   HeartHandshake,
   MessageCircle,
   ShieldCheck,
   Stethoscope,
   UserRound,
+  Users,
 } from "lucide-react";
 import type { ServicePageData } from "@/types/service-page";
 
@@ -47,6 +49,18 @@ export const icuCareServicePage: ServicePageData = {
       title: "Rapid Emergency Response",
       description:
         "Clear escalation protocols and 24×7 coordinator support if a patient's condition changes.",
+    },
+    {
+      icon: Users,
+      title: "Family Comfort & Reduced Hospital Stress",
+      description:
+        "Family members can stay close and involved while their loved one receives intensive-level care.",
+    },
+    {
+      icon: Home,
+      title: "Personalized Recovery Environment",
+      description:
+        "Familiar surroundings support the patient's comfort and emotional well-being during critical recovery.",
     },
   ],
   whoNeedsThis: [

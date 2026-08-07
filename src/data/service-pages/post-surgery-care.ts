@@ -8,7 +8,9 @@ import {
   MessageCircle,
   PersonStanding,
   ShieldCheck,
+  TrendingUp,
   UserRound,
+  UtensilsCrossed,
 } from "lucide-react";
 import type { ServicePageData } from "@/types/service-page";
 
@@ -49,6 +51,18 @@ export const postSurgeryCareServicePage: ServicePageData = {
       title: "Early Complication Detection",
       description:
         "Trained caregivers who can spot early signs of infection or complications and act quickly.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Faster Functional Recovery",
+      description:
+        "Structured support that helps patients regain strength and independence more quickly after surgery.",
+    },
+    {
+      icon: UtensilsCrossed,
+      title: "Nutrition & Hydration Support",
+      description:
+        "Guidance on diet and fluid intake that supports healing during the recovery period.",
     },
   ],
   whoNeedsThis: [

@@ -5,8 +5,10 @@ import {
   Heart,
   HeartHandshake,
   HeartPulse,
+  Home,
   MessageCircle,
   ShieldCheck,
+  Stethoscope,
   UserRound,
 } from "lucide-react";
 import type { ServicePageData } from "@/types/service-page";
@@ -48,6 +50,18 @@ export const palliativeCareServicePage: ServicePageData = {
       title: "Care That Adapts as Needs Change",
       description:
         "Support adjusted continuously as the patient's condition and comfort needs evolve.",
+    },
+    {
+      icon: Home,
+      title: "Comfort of Familiar Surroundings",
+      description:
+        "Care delivered in the patient's own home, surrounded by family and familiar comforts.",
+    },
+    {
+      icon: Stethoscope,
+      title: "Coordination With Your Physician",
+      description:
+        "Our nurses work closely with the patient's doctor to align care with the treatment and comfort plan.",
     },
   ],
   whoNeedsThis: [

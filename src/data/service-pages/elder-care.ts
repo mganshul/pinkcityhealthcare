@@ -5,9 +5,11 @@ import {
   HandHeart,
   HeartHandshake,
   MessageCircle,
+  Pill,
   ShieldCheck,
   UserRound,
   Users,
+  UtensilsCrossed,
 } from "lucide-react";
 import type { ServicePageData } from "@/types/service-page";
 
@@ -48,6 +50,18 @@ export const elderCareServicePage: ServicePageData = {
       title: "Flexible Visit Schedules",
       description:
         "From a few hours a day to full-time live-in support, arranged around your family's needs.",
+    },
+    {
+      icon: Pill,
+      title: "Medication & Appointment Reminders",
+      description:
+        "Gentle reminders that help seniors stay on track with medications and doctor appointments.",
+    },
+    {
+      icon: UtensilsCrossed,
+      title: "Nutritious Meal Support",
+      description:
+        "Help with meal planning and preparation to support proper nutrition and hydration.",
     },
   ],
   whoNeedsThis: [

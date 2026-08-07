@@ -1,12 +1,14 @@
 import {
   Activity,
   CalendarCheck,
+  ClipboardCheck,
   Clock,
   HandHeart,
   Heart,
   HeartHandshake,
   MessageCircle,
   ShieldCheck,
+  ShieldPlus,
   Syringe,
   UserRound,
 } from "lucide-react";
@@ -49,6 +51,18 @@ export const injectionAtHomeServicePage: ServicePageData = {
       title: "Reassuring for Anxious Patients",
       description:
         "A calmer experience for patients who find clinical settings stressful, especially children and elderly patients.",
+    },
+    {
+      icon: ShieldPlus,
+      title: "Reduced Infection Risk",
+      description:
+        "Avoiding a clinic visit lowers exposure to other patients and hospital-acquired infections.",
+    },
+    {
+      icon: ClipboardCheck,
+      title: "Correct Dosage Every Time",
+      description:
+        "Nurses verify medication and dosage against your prescription before every single injection.",
     },
   ],
   whoNeedsThis: [

@@ -6,6 +6,7 @@ import {
   Heart,
   HeartHandshake,
   MessageCircle,
+  Move,
   ShieldCheck,
   UserRound,
   Users,
@@ -49,6 +50,18 @@ export const patientAttendantServicePage: ServicePageData = {
       title: "Background-Verified Attendants",
       description:
         "Every attendant is screened and trained before being placed with a family.",
+    },
+    {
+      icon: HeartHandshake,
+      title: "Family Caregiver Relief",
+      description:
+        "Trusted support that gives family caregivers a much-needed break without worrying about care quality.",
+    },
+    {
+      icon: Move,
+      title: "Trained Mobility & Transfer Assistance",
+      description:
+        "Attendants trained in safe techniques for helping patients move, stand, and transfer safely.",
     },
   ],
   whoNeedsThis: [

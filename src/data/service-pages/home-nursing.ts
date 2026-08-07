@@ -7,7 +7,9 @@ import {
   MessageCircle,
   ShieldCheck,
   Stethoscope,
+  TrendingDown,
   UserRound,
+  Users,
 } from "lucide-react";
 import type { ServicePageData } from "@/types/service-page";
 
@@ -48,6 +50,18 @@ export const homeNursingServicePage: ServicePageData = {
       title: "Ongoing Medical Monitoring",
       description:
         "Vitals, medication schedules, and recovery progress tracked and reported clearly.",
+    },
+    {
+      icon: TrendingDown,
+      title: "Reduced Hospital Readmissions",
+      description:
+        "Consistent, skilled care at home helps prevent the complications that often lead to a return hospital stay.",
+    },
+    {
+      icon: Users,
+      title: "Family Peace of Mind",
+      description:
+        "Regular updates and clear communication keep your family informed and reassured about the patient's care.",
     },
   ],
   whoNeedsThis: [

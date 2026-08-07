@@ -2,11 +2,13 @@ import {
   Activity,
   CalendarCheck,
   Clock,
+  FileText,
   FlaskConical,
   Heart,
   HeartHandshake,
   MessageCircle,
   ShieldCheck,
+  Thermometer,
   UserRound,
 } from "lucide-react";
 import type { ServicePageData } from "@/types/service-page";
@@ -48,6 +50,18 @@ export const labTestServicePage: ServicePageData = {
       title: "No Waiting Room Exposure",
       description:
         "Ideal for elderly patients or anyone who should avoid crowded clinical spaces.",
+    },
+    {
+      icon: FileText,
+      title: "Convenient Digital Reports",
+      description:
+        "Results delivered securely online, so you can access and share reports without an extra trip.",
+    },
+    {
+      icon: Thermometer,
+      title: "Cold-Chain Sample Safety",
+      description:
+        "Samples are stored and transported under proper conditions to preserve accuracy until they reach the lab.",
     },
   ],
   whoNeedsThis: [

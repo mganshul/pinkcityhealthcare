@@ -1,6 +1,8 @@
 import {
   Activity,
   CalendarCheck,
+  Car,
+  ClipboardCheck,
   Clock,
   HandHeart,
   Heart,
@@ -49,6 +51,18 @@ export const doctorVisitServicePage: ServicePageData = {
       title: "Comfortable, Familiar Setting",
       description:
         "Patients — especially elderly or anxious ones — are examined in a setting where they feel at ease.",
+    },
+    {
+      icon: Car,
+      title: "Reduced Travel & Waiting Time",
+      description:
+        "No travel, no waiting room — the doctor comes to you, saving time and effort for the whole family.",
+    },
+    {
+      icon: ClipboardCheck,
+      title: "Follow-Up & Continuity of Care",
+      description:
+        "The same coordinated team can arrange follow-up visits, so your treatment plan stays consistent.",
     },
   ],
   whoNeedsThis: [

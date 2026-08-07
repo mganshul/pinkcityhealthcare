@@ -8,6 +8,7 @@ import {
   MessageCircle,
   ShieldCheck,
   UserRound,
+  Users,
 } from "lucide-react";
 import type { ServicePageData } from "@/types/service-page";
 
@@ -48,6 +49,18 @@ export const bedriddenPatientCareServicePage: ServicePageData = {
       title: "Round-the-Clock Availability",
       description:
         "Full-time or shift-based caregiving, built for patients who need continuous support.",
+    },
+    {
+      icon: Users,
+      title: "Family Training & Guidance",
+      description:
+        "We teach family members safe techniques for daily care tasks, building confidence between visits.",
+    },
+    {
+      icon: HandHeart,
+      title: "Emotional Comfort & Dignity",
+      description:
+        "Care delivered with patience and respect, preserving the patient's dignity through every task.",
     },
   ],
   whoNeedsThis: [
