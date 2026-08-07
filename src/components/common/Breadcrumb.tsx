@@ -14,10 +14,13 @@ import type { BreadcrumbItem as BreadcrumbItemType } from "@/types/navigation";
 interface BreadcrumbsProps {
   items: BreadcrumbItemType[];
   className?: string;
+  /** "light" reads on dark/colored backgrounds — e.g. inside a dark PageHero. */
+  tone?: "default" | "light";
 }
 
-export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
+export function Breadcrumbs({ items, className, tone = "default" }: BreadcrumbsProps) {
   const trail = [{ label: "Home", href: "/" }, ...items];
+  const isLight = tone === "light";
 
   const schema = {
     "@context": "https://schema.org",
@@ -37,16 +40,21 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <BreadcrumbRoot className={className}>
-        <BreadcrumbList>
+        <BreadcrumbList className={isLight ? "text-white/70" : undefined}>
           {trail.map((item, index) => {
             const isLast = index === trail.length - 1;
             return (
               <Fragment key={item.label}>
                 <BreadcrumbItem>
                   {isLast || !item.href ? (
-                    <BreadcrumbPage>{item.label}</BreadcrumbPage>
+                    <BreadcrumbPage className={isLight ? "text-white" : undefined}>
+                      {item.label}
+                    </BreadcrumbPage>
                   ) : (
-                    <BreadcrumbLink asChild>
+                    <BreadcrumbLink
+                      asChild
+                      className={isLight ? "hover:text-white" : undefined}
+                    >
                       <Link href={item.href}>{item.label}</Link>
                     </BreadcrumbLink>
                   )}

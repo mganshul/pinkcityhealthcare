@@ -34,3 +34,45 @@ export const baseMetadata: Metadata = {
     description: siteConfig.description,
   },
 };
+
+interface PageMetadataOptions {
+  /** Page-specific segment only — the root layout's `title.template` appends " | Pink City Healthcare". */
+  title: string;
+  description?: string;
+  /** e.g. "/about" — used to build the canonical URL and Open Graph url. */
+  path: string;
+  keywords?: readonly string[];
+}
+
+// Every internal page should export its metadata via this, not hand-roll
+// title/OG/Twitter fields — keeps canonical URLs, keyword targeting, and
+// social-card formatting consistent site-wide.
+export function buildPageMetadata({
+  title,
+  description = siteConfig.description,
+  path,
+  keywords = primaryKeywords,
+}: PageMetadataOptions): Metadata {
+  const url = `${siteConfig.url}${path}`;
+  const fullTitle = `${title} | ${siteConfig.name}`;
+
+  return {
+    title,
+    description,
+    keywords: [...keywords],
+    alternates: { canonical: url },
+    openGraph: {
+      title: fullTitle,
+      description,
+      url,
+      siteName: siteConfig.name,
+      locale: "en_IN",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: fullTitle,
+      description,
+    },
+  };
+}
