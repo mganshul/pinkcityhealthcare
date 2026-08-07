@@ -9,6 +9,10 @@ interface TestimonialCardProps {
   area: string;
   service: string;
   quote: string;
+  /** 1–5; defaults to 5 so existing callers that don't pass it are unchanged. */
+  rating?: number;
+  /** "large" is used for a page's curated Featured Testimonials, "default" everywhere else. */
+  size?: "default" | "large";
   className?: string;
 }
 
@@ -19,23 +23,33 @@ export function TestimonialCard({
   area,
   service,
   quote,
+  rating = 5,
+  size = "default",
   className,
 }: TestimonialCardProps) {
+  const isLarge = size === "large";
+
   return (
     <figure
       className={cn(
-        "border-border bg-card flex h-full flex-col gap-4 rounded-xl border p-6 shadow-sm",
+        "border-border bg-card flex h-full flex-col gap-4 rounded-xl border shadow-sm",
+        isLarge ? "gap-5 p-8 sm:p-10" : "p-6",
         className,
       )}
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-0.5">
-          <span className="sr-only">Rated 5 out of 5 stars</span>
+          <span className="sr-only">Rated {rating} out of 5 stars</span>
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
               key={i}
               aria-hidden="true"
-              className="fill-primary text-primary size-4"
+              className={cn(
+                "size-4",
+                i < rating
+                  ? "fill-primary text-primary"
+                  : "fill-muted text-muted"
+              )}
             />
           ))}
         </div>
@@ -52,7 +66,12 @@ export function TestimonialCard({
         {service}
       </span>
 
-      <blockquote className="text-foreground flex-1 text-sm leading-relaxed">
+      <blockquote
+        className={cn(
+          "text-foreground flex-1 leading-relaxed",
+          isLarge ? "text-base sm:text-lg" : "text-sm"
+        )}
+      >
         “{quote}”
       </blockquote>
 
