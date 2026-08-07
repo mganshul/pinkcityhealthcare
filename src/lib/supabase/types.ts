@@ -20,6 +20,8 @@ export type AppointmentStatus =
   "pending" | "confirmed" | "completed" | "cancelled";
 export type ContactMessageStatus = "new" | "in_progress" | "resolved";
 export type AdminRole = "super_admin" | "editor";
+export type CareerApplicationStatus =
+  "new" | "reviewed" | "shortlisted" | "rejected" | "hired";
 
 export interface Database {
   public: {
@@ -85,10 +87,11 @@ export interface Database {
         Row: {
           id: string;
           full_name: string;
-          email: string;
-          phone: string | null;
-          subject: string | null;
+          email: string | null;
+          phone: string;
+          subject: string;
           message: string;
+          consent_to_contact: boolean;
           status: ContactMessageStatus;
           created_at: string;
           updated_at: string;
@@ -96,10 +99,11 @@ export interface Database {
         Insert: {
           id?: string;
           full_name: string;
-          email: string;
-          phone?: string | null;
-          subject?: string | null;
+          email?: string | null;
+          phone: string;
+          subject: string;
           message: string;
+          consent_to_contact?: boolean;
           status?: ContactMessageStatus;
           created_at?: string;
           updated_at?: string;
@@ -107,10 +111,11 @@ export interface Database {
         Update: {
           id?: string;
           full_name?: string;
-          email?: string;
-          phone?: string | null;
-          subject?: string | null;
+          email?: string | null;
+          phone?: string;
+          subject?: string;
           message?: string;
+          consent_to_contact?: boolean;
           status?: ContactMessageStatus;
           created_at?: string;
           updated_at?: string;
@@ -275,6 +280,63 @@ export interface Database {
         };
         Relationships: [];
       };
+      career_applications: {
+        Row: {
+          id: string;
+          full_name: string;
+          phone: string;
+          email: string;
+          position: string;
+          years_of_experience: number;
+          current_organization: string | null;
+          highest_qualification: string;
+          preferred_shift: string | null;
+          city: string;
+          state: string;
+          message: string | null;
+          resume_url: string;
+          status: CareerApplicationStatus;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          full_name: string;
+          phone: string;
+          email: string;
+          position: string;
+          years_of_experience: number;
+          current_organization?: string | null;
+          highest_qualification: string;
+          preferred_shift?: string | null;
+          city: string;
+          state: string;
+          message?: string | null;
+          resume_url: string;
+          status?: CareerApplicationStatus;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          full_name?: string;
+          phone?: string;
+          email?: string;
+          position?: string;
+          years_of_experience?: number;
+          current_organization?: string | null;
+          highest_qualification?: string;
+          preferred_shift?: string | null;
+          city?: string;
+          state?: string;
+          message?: string | null;
+          resume_url?: string;
+          status?: CareerApplicationStatus;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
       admins: {
         Row: {
           id: string;
@@ -330,6 +392,7 @@ export interface Database {
       appointment_status: AppointmentStatus;
       contact_message_status: ContactMessageStatus;
       admin_role: AdminRole;
+      career_application_status: CareerApplicationStatus;
     };
     CompositeTypes: Record<string, never>;
   };

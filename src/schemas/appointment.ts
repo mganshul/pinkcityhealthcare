@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { services } from "@/data/services";
-import { emailRegex, phoneRegex } from "@/schemas/shared";
+import { optionalEmailField, requiredPhoneField } from "@/schemas/shared";
 
 // Services live in code (src/data/services.ts), not the database, so there
 // is no DB foreign key to lean on — this Set is the actual guardrail against
@@ -18,19 +18,8 @@ export const appointmentFormSchema = z.object({
     .trim()
     .min(2, "Please enter the patient's full name.")
     .max(120, "Full name is too long."),
-  phone: z
-    .string()
-    .trim()
-    .regex(phoneRegex, "Enter a valid 10-digit Indian mobile number."),
-  email: z
-    .string()
-    .trim()
-    .max(254, "Email is too long.")
-    .optional()
-    .refine(
-      (value) => !value || emailRegex.test(value),
-      "Enter a valid email address."
-    ),
+  phone: requiredPhoneField,
+  email: optionalEmailField,
   serviceSlug: z
     .string()
     .trim()

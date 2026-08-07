@@ -3,7 +3,7 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 import { Container } from "@/components/common/Container";
 import { SocialIcon } from "@/components/common/SocialIcon";
-import { phoneHref, siteConfig } from "@/constants/site";
+import { googleMapsHref, phoneHref, siteConfig } from "@/constants/site";
 import { footerQuickLinks, legalLinks, services } from "@/data/navigation";
 import type { SocialPlatform } from "@/types/navigation";
 
@@ -14,10 +14,6 @@ const socialPlatforms: SocialPlatform[] = [
   "linkedin",
   "youtube",
 ];
-
-const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `${siteConfig.name}, ${siteConfig.contact.address.line1}, ${siteConfig.contact.address.line2}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.pincode}`
-)}`;
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -108,7 +104,7 @@ export function Footer() {
             </li>
             <li>
               <a
-                href={mapsHref}
+                href={googleMapsHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-background flex items-start gap-2.5 transition-colors"

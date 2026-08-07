@@ -2,6 +2,10 @@
 
 import { contactFormSchema, type ContactFormInput } from "@/schemas/contact";
 import { createContactMessage } from "@/lib/supabase/queries/contacts";
+import {
+  sendContactAdminNotification,
+  sendContactConfirmationEmail,
+} from "@/lib/email/contact";
 
 export interface ContactActionState {
   status: "idle" | "success" | "error";
@@ -31,6 +35,7 @@ export async function submitContactAction(
     phone: readFormValue(formData, "phone"),
     subject: readFormValue(formData, "subject"),
     message: readFormValue(formData, "message"),
+    consentToContact: readFormValue(formData, "consentToContact") === "true",
   };
 
   const parsed = contactFormSchema.safeParse(raw);
@@ -50,8 +55,9 @@ export async function submitContactAction(
     };
   }
 
+  let contactMessage;
   try {
-    await createContactMessage(parsed.data);
+    contactMessage = await createContactMessage(parsed.data);
   } catch (error) {
     console.error("Failed to create contact message:", error);
     return {
@@ -60,6 +66,12 @@ export async function submitContactAction(
         "Something went wrong while sending your message. Please call us directly or try again.",
     };
   }
+
+  // Never blocks or fails the submission response — see src/lib/email/contact.ts.
+  await Promise.all([
+    sendContactAdminNotification(contactMessage),
+    sendContactConfirmationEmail(contactMessage),
+  ]);
 
   return {
     status: "success",

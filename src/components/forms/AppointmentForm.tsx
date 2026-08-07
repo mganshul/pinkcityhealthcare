@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition, type ReactNode } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { AppointmentSuccessCard } from "@/components/forms/AppointmentSuccessCard";
+import { FormField, fieldA11y } from "@/components/forms/FormField";
 import {
   appointmentFormSchema,
   type AppointmentFormInput,
@@ -26,7 +27,6 @@ import {
   type AppointmentActionState,
 } from "@/lib/actions/appointment";
 import { services } from "@/data/services";
-import { cn } from "@/lib/utils";
 
 const serviceOptions = services.map((service) => ({
   slug: service.href.replace("/services/", ""),
@@ -40,53 +40,6 @@ const initialAppointmentActionState: AppointmentActionState = {
   status: "idle",
   message: "",
 };
-
-function fieldA11y(id: string, error?: string, required?: boolean) {
-  return {
-    id,
-    "aria-invalid": error ? true : undefined,
-    "aria-describedby": error ? `${id}-error` : undefined,
-    "aria-required": required ? true : undefined,
-  } as const;
-}
-
-interface FormFieldProps {
-  id: string;
-  label: string;
-  required?: boolean;
-  error?: string;
-  children: ReactNode;
-  className?: string;
-}
-
-function FormField({
-  id,
-  label,
-  required,
-  error,
-  children,
-  className,
-}: FormFieldProps) {
-  return (
-    <div className={cn("flex flex-col gap-1.5", className)}>
-      <Label htmlFor={id}>
-        {label}
-        {required && (
-          <span className="text-destructive" aria-hidden="true">
-            {" "}
-            *
-          </span>
-        )}
-      </Label>
-      {children}
-      {error && (
-        <p id={`${id}-error`} role="alert" className="text-destructive text-sm">
-          {error}
-        </p>
-      )}
-    </div>
-  );
-}
 
 export function AppointmentForm() {
   const [actionState, setActionState] = useState<AppointmentActionState>(

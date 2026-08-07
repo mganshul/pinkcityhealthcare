@@ -52,3 +52,15 @@ export const siteConfig = {
 // Centralized so tel:/wa.me href formatting isn't re-derived at every call site.
 export const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`;
 export const whatsappDigits = siteConfig.contact.whatsapp.replace(/\D/g, "");
+
+// Single formatted address string — the Footer, Contact page business card,
+// and Google Maps links/embeds all read from this instead of re-joining
+// siteConfig.contact.address fields independently.
+export const formattedAddress = `${siteConfig.contact.address.line1}, ${siteConfig.contact.address.line2}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.pincode}`;
+
+// Includes the business name (not just the address) so the map pin resolves
+// to the right place rather than just a street segment.
+export const googleMapsQuery = encodeURIComponent(
+  `${siteConfig.name}, ${formattedAddress}`
+);
+export const googleMapsHref = `https://www.google.com/maps/search/?api=1&query=${googleMapsQuery}`;

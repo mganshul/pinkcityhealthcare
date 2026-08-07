@@ -17,10 +17,11 @@ export async function createContactMessage(
 
   const payload: TablesInsert<"contact_messages"> = {
     full_name: input.fullName,
-    email: input.email,
-    phone: input.phone || null,
-    subject: input.subject || null,
+    email: input.email || null,
+    phone: input.phone,
+    subject: input.subject,
     message: input.message,
+    consent_to_contact: input.consentToContact,
   };
 
   const { data, error } = await supabase
