@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { faqs, type FAQ } from "@/data/faqs";
+import { siteConfig } from "@/constants/site";
 
 function faqSlug(question: string) {
   return question
@@ -60,7 +61,7 @@ export function FAQSection() {
       <SectionHeader
         eyebrow="FAQ"
         title="Frequently Asked Questions"
-        description="Everything you need to know before booking professional home healthcare services with Pink City Healthcare."
+        description={`Everything you need to know before booking professional home healthcare services with ${siteConfig.name}.`}
         titleId="faq-heading"
       />
 

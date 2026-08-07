@@ -8,6 +8,7 @@ import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { LoadingIndicator } from "@/components/layout/LoadingIndicator";
 import { FloatingWidgets } from "@/components/common/FloatingWidgets";
 import { siteConfig } from "@/constants/site";
+import { baseMetadata, defaultTitle } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,8 +23,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  ...baseMetadata,
   title: {
-    default: `${siteConfig.name} | ${siteConfig.tagline}`,
+    default: defaultTitle,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,

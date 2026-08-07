@@ -5,6 +5,7 @@ import { Section } from "@/components/common/Section";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { TeamMemberCard } from "@/components/sections/care-team/TeamMemberCard";
 import { teamMembers } from "@/data/team";
+import { siteConfig } from "@/constants/site";
 import { fadeUpItemVariants, staggerContainerVariants } from "@/lib/motion";
 
 export function CareTeam() {
@@ -40,7 +41,7 @@ export function CareTeam() {
         transition={{ duration: shouldReduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="text-foreground border-border mx-auto mt-12 max-w-2xl border-t pt-8 text-center text-lg font-medium text-balance sm:text-xl lg:mt-16"
       >
-        Every healthcare professional at Pink City Healthcare is selected for
+        Every healthcare professional at {siteConfig.name} is selected for
         compassion, professionalism, and commitment to patient care.
       </motion.p>
     </Section>

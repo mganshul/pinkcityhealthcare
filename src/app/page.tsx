@@ -9,6 +9,7 @@ import { CareTeam } from "@/components/sections/care-team/CareTeam";
 import { Testimonials } from "@/components/sections/testimonials/Testimonials";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { HealthTips } from "@/components/sections/health-tips/HealthTips";
+import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <Testimonials />
       <FAQSection />
       <HealthTips />
+      <FinalCTA />
     </>
   );
 }

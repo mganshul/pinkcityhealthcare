@@ -12,6 +12,7 @@ import {
 import { Section } from "@/components/common/Section";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { FeatureCard } from "@/components/sections/why-choose-us/FeatureCard";
+import { siteConfig } from "@/constants/site";
 import { fadeUpItemVariants, staggerContainerVariants } from "@/lib/motion";
 
 const features = [
@@ -60,7 +61,7 @@ export function WhyChooseUs() {
     <Section id="why-choose-us">
       <SectionHeader
         eyebrow="Why Choose Us"
-        title="Why Families Choose Pink City Healthcare"
+        title={`Why Families Choose ${siteConfig.name}`}
         description="Six reasons families across Jaipur trust us with the people they love most."
         titleId="why-choose-us-heading"
       />

@@ -6,7 +6,7 @@ export const siteConfig = {
   shortName: "Pink City Healthcare",
   domain: "pinkcityhealthcare.com",
   url: "https://pinkcityhealthcare.com",
-  tagline: "Home Healthcare Services in Jaipur",
+  tagline: "Compassionate Healthcare at Home",
   description:
     "Providing professional home healthcare services in Jaipur — including home nursing, elder care, ICU care at home, physiotherapy, post-surgery care, and mother & baby care — with healthcare support available in other cities on request.",
   founder: {
@@ -32,17 +32,20 @@ export const siteConfig = {
   },
   serviceArea: {
     primary: "Jaipur, Rajasthan",
-    // The one approved way to talk about coverage outside Jaipur —
-    // never market as pan-India.
-    coverageNote:
-      "Proudly serving families across Jaipur, with healthcare support available in other cities on request.",
+    // Secondary coverage only — Jaipur must always stay the primary
+    // marketing focus, this is a supporting "on request" note, not a
+    // pan-India headline.
+    coverageNote: "Support available across India on request.",
   },
+  // Placeholder destinations until the client provides real profile URLs —
+  // centralized here so every link (header, footer, future pages) updates
+  // in one place when the real accounts are ready.
   social: {
-    facebook: "",
-    instagram: "",
+    facebook: "https://facebook.com",
+    instagram: "https://instagram.com",
     twitter: "",
-    linkedin: "",
-    youtube: "",
+    linkedin: "https://linkedin.com",
+    youtube: "https://youtube.com",
   },
 } as const;
 
