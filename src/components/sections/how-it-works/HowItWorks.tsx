@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { Section } from "@/components/common/Section";
 import { SectionHeader } from "@/components/common/SectionHeader";
-import { ProcessStep } from "@/components/sections/how-it-works/ProcessStep";
+import { ProcessTimeline } from "@/components/patterns/ProcessTimeline";
 
 const steps = [
   {
@@ -47,18 +47,7 @@ export function HowItWorks() {
         titleId="how-it-works-heading"
       />
 
-      <ol className="mt-12 flex list-none flex-col lg:mt-16 lg:flex-row">
-        {steps.map((step, index) => (
-          <ProcessStep
-            key={step.title}
-            index={index}
-            icon={step.icon}
-            title={step.title}
-            description={step.description}
-            isLast={index === steps.length - 1}
-          />
-        ))}
-      </ol>
+      <ProcessTimeline steps={steps} />
     </Section>
   );
 }

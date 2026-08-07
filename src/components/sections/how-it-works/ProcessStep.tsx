@@ -1,11 +1,15 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import type { LucideIcon } from "lucide-react";
 
 interface ProcessStepProps {
   index: number;
-  icon: LucideIcon;
+  /** Pre-rendered icon element (not a component reference) — keeps this
+   * component safe to receive icon data from a Server Component parent,
+   * since React elements are serializable across that boundary but bare
+   * component functions aren't. */
+  icon: ReactNode;
   title: string;
   description: string;
   isLast: boolean;
@@ -13,7 +17,7 @@ interface ProcessStepProps {
 
 export function ProcessStep({
   index,
-  icon: Icon,
+  icon,
   title,
   description,
   isLast,
@@ -37,10 +41,7 @@ export function ProcessStep({
     >
       <div className="flex shrink-0 flex-col items-center">
         <span className="bg-secondary group-hover:bg-primary relative flex size-14 items-center justify-center rounded-full transition-colors duration-300 motion-reduce:transition-none">
-          <Icon
-            className="text-primary size-6 transition-colors duration-300 motion-reduce:transition-none group-hover:text-white"
-            aria-hidden="true"
-          />
+          {icon}
           <span className="border-background bg-primary text-primary-foreground absolute -top-1 -right-1 flex size-6 items-center justify-center rounded-full border-2 text-xs font-bold">
             {stepNumber}
           </span>
