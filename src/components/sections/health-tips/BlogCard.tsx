@@ -1,23 +1,17 @@
-import { Calendar, Clock, ImageIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { ArrowRight, Calendar, Clock, ImageIcon } from "lucide-react";
+import { cn, formatDate } from "@/lib/utils";
 import type { BlogPost } from "@/data/blogs";
 
-// No /blog or /blog/[slug] route exists yet, so this card is intentionally
-// a static preview (not a <Link>) — see Milestone 37's navigation audit.
-// If a real blog is built later, re-wrap this in a Link to `/blog/${slug}`.
-interface BlogCardProps extends Omit<BlogPost, "id" | "featured" | "slug"> {
+// Shared by the homepage's Health Tips preview and the /blog listing grid —
+// one card implementation, reused rather than duplicated per Milestone 38.
+interface BlogCardProps
+  extends Omit<BlogPost, "id" | "featured" | "content" | "author" | "tags" | "seo"> {
   className?: string;
 }
 
-function formatPublishDate(isoDate: string) {
-  return new Intl.DateTimeFormat("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  }).format(new Date(isoDate));
-}
-
 export function BlogCard({
+  slug,
   title,
   category,
   excerpt,
@@ -26,9 +20,10 @@ export function BlogCard({
   className,
 }: BlogCardProps) {
   return (
-    <article
+    <Link
+      href={`/blog/${slug}`}
       className={cn(
-        "border-border bg-card flex h-full flex-col overflow-hidden rounded-xl border shadow-sm",
+        "group border-border bg-card focus-visible:ring-ring flex h-full flex-col overflow-hidden rounded-xl border shadow-sm outline-none transition-all duration-300 ease-out motion-reduce:transition-none hover:-translate-y-1 hover:shadow-md focus-visible:ring-3 focus-visible:ring-offset-2",
         className,
       )}
     >
@@ -64,10 +59,18 @@ export function BlogCard({
           </span>
           <span className="flex items-center gap-1.5">
             <Calendar className="size-3.5" aria-hidden="true" />
-            <time dateTime={publishDate}>{formatPublishDate(publishDate)}</time>
+            <time dateTime={publishDate}>{formatDate(publishDate)}</time>
           </span>
         </div>
+
+        <span className="text-primary mt-1 flex items-center gap-1.5 text-sm font-semibold">
+          Read Article
+          <ArrowRight
+            className="size-3.5 transition-transform duration-300 motion-reduce:transition-none group-hover:translate-x-1"
+            aria-hidden="true"
+          />
+        </span>
       </div>
-    </article>
+    </Link>
   );
 }

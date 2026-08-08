@@ -10,3 +10,14 @@ export function cn(...inputs: ClassValue[]) {
 export function isInternalHref(href: string) {
   return href.startsWith("/");
 }
+
+/** Formats an ISO date string ("2026-07-28") for display — shared by every
+ * blog card, article meta row, and sidebar so date formatting stays
+ * identical everywhere it appears. */
+export function formatDate(isoDate: string) {
+  return new Intl.DateTimeFormat("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(isoDate));
+}
