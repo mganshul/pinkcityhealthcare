@@ -1,9 +1,11 @@
-import Link from "next/link";
-import { ArrowRight, Calendar, Clock, ImageIcon } from "lucide-react";
+import { Calendar, Clock, ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { BlogPost } from "@/data/blogs";
 
-interface BlogCardProps extends Omit<BlogPost, "id" | "featured"> {
+// No /blog or /blog/[slug] route exists yet, so this card is intentionally
+// a static preview (not a <Link>) — see Milestone 37's navigation audit.
+// If a real blog is built later, re-wrap this in a Link to `/blog/${slug}`.
+interface BlogCardProps extends Omit<BlogPost, "id" | "featured" | "slug"> {
   className?: string;
 }
 
@@ -17,7 +19,6 @@ function formatPublishDate(isoDate: string) {
 
 export function BlogCard({
   title,
-  slug,
   category,
   excerpt,
   readingTime,
@@ -25,10 +26,9 @@ export function BlogCard({
   className,
 }: BlogCardProps) {
   return (
-    <Link
-      href={`/blog/${slug}`}
+    <article
       className={cn(
-        "group border-border bg-card focus-visible:ring-ring flex h-full flex-col overflow-hidden rounded-xl border shadow-sm outline-none transition-all duration-300 ease-out motion-reduce:transition-none hover:-translate-y-1 hover:shadow-md focus-visible:ring-3 focus-visible:ring-offset-2",
+        "border-border bg-card flex h-full flex-col overflow-hidden rounded-xl border shadow-sm",
         className,
       )}
     >
@@ -67,15 +67,7 @@ export function BlogCard({
             <time dateTime={publishDate}>{formatPublishDate(publishDate)}</time>
           </span>
         </div>
-
-        <span className="text-primary mt-1 flex items-center gap-1.5 text-sm font-medium">
-          Read Article
-          <ArrowRight
-            className="size-3.5 transition-transform duration-300 motion-reduce:transition-none group-hover:translate-x-1"
-            aria-hidden="true"
-          />
-        </span>
       </div>
-    </Link>
+    </article>
   );
 }

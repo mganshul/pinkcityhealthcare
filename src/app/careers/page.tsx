@@ -14,8 +14,8 @@ import { Section } from "@/components/common/Section";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { FeatureCard } from "@/components/sections/why-choose-us/FeatureCard";
 import { CareerOpeningsSection } from "@/components/careers/CareerOpeningsSection";
-import { jobs } from "@/data/careers";
-import { phoneHref } from "@/constants/site";
+import { jobs, type EmploymentType } from "@/data/careers";
+import { phoneHref, siteConfig } from "@/constants/site";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -66,6 +66,48 @@ const whyWorkWithUs = [
 
 const activeJobs = jobs.filter((job) => job.isActive);
 
+// schema.org employmentType uses SCREAMING_SNAKE_CASE codes, distinct from
+// the human-readable labels shown on each JobCard.
+const schemaEmploymentType: Record<EmploymentType, string> = {
+  "Full Time": "FULL_TIME",
+  "Part Time": "PART_TIME",
+};
+
+function jobPostingSchema(job: (typeof activeJobs)[number]) {
+  const validThrough = new Date(job.datePosted);
+  validThrough.setDate(validThrough.getDate() + 90);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: job.title,
+    description: job.description,
+    identifier: {
+      "@type": "PropertyValue",
+      name: siteConfig.name,
+      value: job.slug,
+    },
+    datePosted: job.datePosted,
+    validThrough: validThrough.toISOString().slice(0, 10),
+    employmentType: schemaEmploymentType[job.employmentType],
+    hiringOrganization: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      sameAs: siteConfig.url,
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: job.location,
+        addressRegion: siteConfig.contact.address.state,
+        addressCountry: siteConfig.contact.address.country,
+      },
+    },
+    experienceRequirements: job.experience,
+  };
+}
+
 export default function CareersPage() {
   return (
     <PageLayout
@@ -77,6 +119,16 @@ export default function CareersPage() {
         />
       }
     >
+      {activeJobs.map((job) => (
+        <script
+          key={job.slug}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jobPostingSchema(job)),
+          }}
+        />
+      ))}
+
       <Section id="why-work-with-us">
         <SectionHeader
           eyebrow="Why Work With Us"

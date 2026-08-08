@@ -8,6 +8,8 @@ export interface Job {
   experience: string;
   description: string;
   isActive: boolean;
+  /** ISO date (YYYY-MM-DD) — feeds the JobPosting datePosted field on the Careers page. */
+  datePosted: string;
 }
 
 // Single source of truth for open positions — the Careers page reads this
@@ -24,6 +26,7 @@ export const jobs: Job[] = [
     description:
       "Provide professional nursing care to patients at home while maintaining the highest standards of compassion and safety.",
     isActive: true,
+    datePosted: "2026-08-01",
   },
   {
     slug: "elder-care-attendant",
@@ -34,6 +37,7 @@ export const jobs: Job[] = [
     description:
       "Support elderly patients with daily living activities, mobility, and companionship in a home care setting.",
     isActive: true,
+    datePosted: "2026-08-01",
   },
   {
     slug: "physiotherapist",
@@ -44,6 +48,7 @@ export const jobs: Job[] = [
     description:
       "Deliver guided rehabilitation and mobility sessions to patients recovering at home, working closely with our care coordinators.",
     isActive: true,
+    datePosted: "2026-08-01",
   },
   {
     slug: "icu-care-nurse",
@@ -54,6 +59,7 @@ export const jobs: Job[] = [
     description:
       "Manage critical care equipment, monitoring, and clinical routines for ICU-level patients receiving care at home.",
     isActive: true,
+    datePosted: "2026-08-01",
   },
   {
     slug: "patient-care-coordinator",
@@ -64,5 +70,6 @@ export const jobs: Job[] = [
     description:
       "Be the first point of contact for families, matching patients with the right caregiver and keeping every care plan on track.",
     isActive: true,
+    datePosted: "2026-08-01",
   },
 ];

@@ -4,12 +4,14 @@ import type { NavDropdown, NavLink } from "@/types/navigation";
 // (`import { services } from "@/data/navigation"`) keep working unchanged.
 export { services } from "@/data/services";
 
+// Every href below must point at a route that actually exists — this list
+// was audited in Milestone 37 and pruned of links to pages that were never
+// built (why-choose-us, our-team, blog, faq, pricing, insurance-support).
+// If one of those pages gets built later, add its link back here.
 export const aboutDropdown: NavDropdown = {
   label: "About",
   items: [
     { label: "About Us", href: "/about" },
-    { label: "Why Choose Us", href: "/why-choose-us" },
-    { label: "Our Team", href: "/our-team" },
     { label: "Gallery", href: "/gallery" },
     { label: "Careers", href: "/careers" },
   ],
@@ -18,22 +20,15 @@ export const aboutDropdown: NavDropdown = {
 export const primaryNavLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Testimonials", href: "/testimonials" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const footerQuickLinks: NavLink[] = [
   { label: "About Us", href: "/about" },
-  { label: "Why Choose Us", href: "/why-choose-us" },
-  { label: "Our Team", href: "/our-team" },
   { label: "Gallery", href: "/gallery" },
   { label: "Testimonials", href: "/testimonials" },
-  { label: "FAQ", href: "/faq" },
   { label: "Careers", href: "/careers" },
-  { label: "Pricing", href: "/pricing" },
   { label: "Service Areas", href: "/service-areas" },
-  { label: "Insurance Support", href: "/insurance-support" },
-  { label: "Blog", href: "/blog" },
 ];
 
 export const legalLinks: NavLink[] = [
