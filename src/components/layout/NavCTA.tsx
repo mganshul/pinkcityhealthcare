@@ -20,7 +20,7 @@ function NavCTAComponent({ transparent = false, className }: NavCTAProps) {
         className={cn(
           "hidden items-center gap-2 xl:inline-flex",
           transparent &&
-            "border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white"
+            "border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
         )}
       >
         <a href={phoneHref}>

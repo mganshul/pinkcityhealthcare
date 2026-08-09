@@ -22,7 +22,7 @@ export function Footer() {
     <footer className="bg-foreground text-background/70">
       <Container className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:py-20">
         <div className="flex flex-col gap-4 lg:col-span-4">
-          <Logo variant="light" />
+          <Logo variant="white" />
           <p className="max-w-xs text-sm leading-relaxed">
             {siteConfig.description}
           </p>

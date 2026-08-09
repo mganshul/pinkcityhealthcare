@@ -28,7 +28,7 @@ export function Header() {
         )}
       >
         <Container className="flex h-16 items-center justify-between lg:h-20">
-          <Logo variant={transparent ? "light" : "default"} />
+          <Logo priority variant={transparent ? "white" : "default"} />
 
           <div className="flex items-center gap-3">
             <DesktopNav transparent={transparent} />

@@ -1,39 +1,48 @@
+import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
-import { HeartPulse } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/constants/site";
 
 interface LogoProps {
   className?: string;
-  variant?: "default" | "light";
+  priority?: boolean;
+  /** "white" is the light/transparent mark used over the dark hero; "default" is the full-color mark used on light header backgrounds. */
+  variant?: "default" | "white";
 }
 
-function LogoComponent({ className, variant = "default" }: LogoProps) {
+// Both logo files have real transparent backgrounds, so either renders
+// directly on any surface with no backdrop container. They have different
+// native aspect ratios, so the logo sits in a fixed-size box (not
+// height-only sizing) with object-contain — swapping `variant` changes
+// only the image inside that box, never its footprint, so switching logos
+// on scroll never shifts surrounding header layout.
+const LOGO_SRC: Record<NonNullable<LogoProps["variant"]>, string> = {
+  default: "/images/logo/logo.png",
+  white: "/images/logo/logo-white-trans.png",
+};
+
+function LogoComponent({
+  className,
+  priority = false,
+  variant = "default",
+}: LogoProps) {
   return (
     <Link
       href="/"
       className={cn(
-        "font-heading focus-visible:ring-ring/50 flex items-center gap-2 rounded-lg text-lg font-bold tracking-tight outline-none focus-visible:ring-3",
-        variant === "light" ? "text-white" : "text-foreground",
+        "focus-visible:ring-ring/50 relative inline-flex h-14 w-44 shrink-0 items-center rounded-lg outline-none focus-visible:ring-3 lg:h-16 lg:w-52",
         className,
       )}
     >
-      <span className="bg-primary text-primary-foreground flex size-9 shrink-0 items-center justify-center rounded-xl">
-        <HeartPulse className="size-5" aria-hidden="true" />
-      </span>
-      <span className="leading-tight">
-        Pink City
-        <span className="text-brand-pink">.</span>
-        <span
-          className={cn(
-            "block text-xs font-medium tracking-wide",
-            variant === "light" ? "text-white/90" : "text-muted-foreground",
-          )}
-        >
-          {siteConfig.tagline}
-        </span>
-      </span>
+      <Image
+        src={LOGO_SRC[variant]}
+        alt={siteConfig.name}
+        fill
+        sizes="208px"
+        priority={priority}
+        className="object-contain object-left"
+      />
     </Link>
   );
 }

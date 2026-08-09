@@ -22,7 +22,7 @@ export function TrustBadge({
       )}
     >
       <Icon
-        className={cn("text-primary size-4 shrink-0", iconClassName)}
+        className={cn("text-medical-blue size-4 shrink-0", iconClassName)}
         aria-hidden="true"
       />
       <span>{label}</span>

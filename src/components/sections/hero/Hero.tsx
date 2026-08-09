@@ -40,7 +40,7 @@ export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="from-primary via-primary-dark relative overflow-hidden bg-gradient-to-br to-[#050B24] pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
+    <section className="from-primary via-primary-dark relative overflow-hidden bg-gradient-to-br to-[#1a0512] pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
       <div
         aria-hidden="true"
         className="absolute top-0 right-0 size-[32rem] translate-x-1/4 -translate-y-1/4 rounded-full bg-white/10 blur-3xl lg:size-[40rem]"
@@ -62,7 +62,7 @@ export function Hero() {
             className="flex items-center gap-2"
           >
             <span
-              className="bg-brand-pink size-2 rounded-full shadow-[0_0_8px_2px_rgba(233,30,99,0.5)]"
+              className="bg-brand-pink shadow-brand-pink/50 size-2 rounded-full shadow-[0_0_8px_2px]"
               aria-hidden="true"
             />
             <span className="text-xs font-semibold tracking-wide text-white/90 uppercase">

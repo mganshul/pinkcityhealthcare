@@ -31,7 +31,7 @@ export function DesktopNav({ transparent = false }: DesktopNavProps) {
   const isServicesActive = pathname.startsWith("/services");
 
   const activePillClasses = transparent
-    ? "bg-white/15 text-white"
+    ? "bg-brand-pink/25 text-white"
     : "bg-secondary text-primary";
 
   const linkClasses = (active: boolean) =>

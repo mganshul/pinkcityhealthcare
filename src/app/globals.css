@@ -29,13 +29,23 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Brand accent colors, used deliberately for highlights — not global hover states */
-  --color-brand-green: #39b54a;
-  --color-brand-pink: #e91e63;
+  /* Medical trust blue — used for healthcare/service icons, trust
+   * indicators, information cards, and statistics. Deliberately separate
+   * from --primary so brand identity (pink) and clinical trust (blue)
+   * don't collide. */
+  --color-medical-blue: var(--medical-blue);
 
-  /* Gradient stops for hero/promo surfaces built on --primary */
-  --color-primary-light: #3d74ff;
-  --color-primary-dark: #0b3fc4;
+  /* Brand accent colors, used deliberately for highlights — not global hover states.
+   * brand-pink is the true, undiluted pink sampled from the official logo —
+   * used only on small decorative surfaces (dots, glows) where WCAG text
+   * contrast doesn't apply. --primary below is an accessible-darkened
+   * derivative of the same hue, used everywhere contrast matters. */
+  --color-brand-green: #39b54a;
+  --color-brand-pink: #ec0c7e;
+
+  /* Gradient stops for hero/promo surfaces built on --primary (brand pink) */
+  --color-primary-light: #f0479e;
+  --color-primary-dark: #a10f5c;
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -46,25 +56,26 @@
 }
 
 :root {
-  --background: #f8fbff;
+  --background: #fdf9fb;
   --foreground: #1f2937;
   --card: #ffffff;
   --card-foreground: #1f2937;
   --popover: #ffffff;
   --popover-foreground: #1f2937;
-  --primary: #1e5eff;
+  --primary: #d6127a;
   --primary-foreground: #ffffff;
-  --secondary: #eaf1ff;
-  --secondary-foreground: #1e5eff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #d6127a;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
-  --accent: #eaf1ff;
-  --accent-foreground: #1e5eff;
+  --accent: #f4f4f5;
+  --accent-foreground: #d6127a;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #1e5eff;
+  --ring: #d6127a;
+  --medical-blue: #1e5eff;
   --radius: 0.75rem;
 }
 
@@ -75,19 +86,20 @@
   --card-foreground: #f1f5f9;
   --popover: #111a2e;
   --popover-foreground: #f1f5f9;
-  --primary: #4c82ff;
+  --primary: #f0479e;
   --primary-foreground: #0b1220;
-  --secondary: #1b2740;
-  --secondary-foreground: #cbd8ff;
+  --secondary: #1e2532;
+  --secondary-foreground: #f6c7e3;
   --muted: #1b2740;
   --muted-foreground: #94a3b8;
-  --accent: #1b2740;
-  --accent-foreground: #cbd8ff;
+  --accent: #1e2532;
+  --accent-foreground: #f6c7e3;
   --destructive: #f87171;
   --destructive-foreground: #0b1220;
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: #4c82ff;
+  --ring: #f0479e;
+  --medical-blue: #4c82ff;
 }
 
 @layer base {
