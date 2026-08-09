@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock, ImageIcon } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
@@ -18,14 +19,26 @@ export function FeaturedArticleCard({ post }: FeaturedArticleCardProps) {
       href={`/blog/${post.slug}`}
       className="group border-border bg-card focus-visible:ring-ring grid overflow-hidden rounded-2xl border shadow-sm outline-none transition-shadow duration-300 hover:shadow-md focus-visible:ring-3 focus-visible:ring-offset-2 md:grid-cols-2"
     >
-      <div className="bg-muted flex aspect-video items-center justify-center md:aspect-auto">
-        <div className="flex flex-col items-center gap-2">
-          <ImageIcon className="text-muted-foreground/50 size-10" aria-hidden="true" />
-          <span className="text-muted-foreground/70 text-xs font-medium">
-            Photo coming soon
-          </span>
+      {post.featuredImage ? (
+        <div className="bg-muted relative aspect-video overflow-hidden md:aspect-auto">
+          <Image
+            src={post.featuredImage}
+            alt={post.featuredImagePlaceholder}
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
         </div>
-      </div>
+      ) : (
+        <div className="bg-muted flex aspect-video items-center justify-center md:aspect-auto">
+          <div className="flex flex-col items-center gap-2">
+            <ImageIcon className="text-muted-foreground/50 size-10" aria-hidden="true" />
+            <span className="text-muted-foreground/70 text-xs font-medium">
+              Photo coming soon
+            </span>
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-col justify-center gap-4 p-6 sm:p-8">
         <div className="flex items-center gap-3">

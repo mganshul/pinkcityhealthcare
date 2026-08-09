@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Calendar, Clock, ImageIcon } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -105,17 +106,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </span>
             </div>
 
-            <div className="bg-muted flex aspect-video items-center justify-center overflow-hidden rounded-xl">
-              <div className="flex flex-col items-center gap-2">
-                <ImageIcon
-                  className="text-muted-foreground/50 size-12"
-                  aria-hidden="true"
+            {post.featuredImage ? (
+              <div className="bg-muted relative aspect-video overflow-hidden rounded-xl">
+                <Image
+                  src={post.featuredImage}
+                  alt={post.featuredImagePlaceholder}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 700px, 100vw"
+                  className="object-cover"
                 />
-                <span className="text-muted-foreground/70 text-sm font-medium">
-                  Photo coming soon
-                </span>
               </div>
-            </div>
+            ) : (
+              <div className="bg-muted flex aspect-video items-center justify-center overflow-hidden rounded-xl">
+                <div className="flex flex-col items-center gap-2">
+                  <ImageIcon
+                    className="text-muted-foreground/50 size-12"
+                    aria-hidden="true"
+                  />
+                  <span className="text-muted-foreground/70 text-sm font-medium">
+                    Photo coming soon
+                  </span>
+                </div>
+              </div>
+            )}
 
             <ArticleContent blocks={post.content} />
           </article>

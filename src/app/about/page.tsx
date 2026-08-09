@@ -66,6 +66,8 @@ export default function AboutPage() {
       <ImageTextSection
         eyebrow="Our Story"
         title="Why We Started Pink City Healthcare"
+        image="/images/about/about-final.png"
+        imageAlt="The Pink City Healthcare team"
       >
         <p>{siteConfig.story}</p>
         <p>
@@ -85,6 +87,8 @@ export default function AboutPage() {
         eyebrow="Our Mission"
         title="Bringing Hospital-Grade Care Home"
         imagePosition="left"
+        image="/images/about/mission.png"
+        imageAlt="The Pink City Healthcare Mission: Bringing Hospital-Grade Care Home"
       >
         <p>
           Our mission is to make professional, verified healthcare accessible
@@ -137,6 +141,8 @@ export default function AboutPage() {
       <ImageTextSection
         eyebrow="Founder's Message"
         title="A Personal Note From Mr. Rizwan Khan"
+        image="/images/about/founder.png"
+        imageAlt="Mr. Rizwan Khan, Founder of Pink City Healthcare"
       >
         <p>
           I started Pink City Healthcare after seeing how difficult it was for

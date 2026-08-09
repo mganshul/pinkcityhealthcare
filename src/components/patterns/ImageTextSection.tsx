@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import { Section } from "@/components/common/Section";
 import { cn } from "@/lib/utils";
@@ -9,6 +10,8 @@ interface ImageTextSectionProps {
   title: string;
   children: ReactNode;
   imagePosition?: "left" | "right";
+  /** Real photo path in /public, e.g. "/images/about/about-final.png". Omit to keep the "Photo coming soon" placeholder box. */
+  image?: string;
   imageAlt?: string;
   className?: string;
 }
@@ -24,6 +27,7 @@ export function ImageTextSection({
   title,
   children,
   imagePosition = "right",
+  image,
   imageAlt = "Photo coming soon",
   className,
 }: ImageTextSectionProps) {
@@ -32,19 +36,29 @@ export function ImageTextSection({
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div
           className={cn(
-            "bg-muted flex aspect-[4/3] items-center justify-center rounded-2xl",
+            "bg-muted relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl",
             imagePosition === "left" && "lg:order-2",
           )}
         >
-          <div className="flex flex-col items-center gap-2">
-            <ImageIcon
-              className="text-muted-foreground/50 size-10"
-              aria-hidden="true"
+          {image ? (
+            <Image
+              src={image}
+              alt={imageAlt}
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
             />
-            <span className="text-muted-foreground/70 text-xs font-medium">
-              {imageAlt}
-            </span>
-          </div>
+          ) : (
+            <div className="flex flex-col items-center gap-2">
+              <ImageIcon
+                className="text-muted-foreground/50 size-10"
+                aria-hidden="true"
+              />
+              <span className="text-muted-foreground/70 text-xs font-medium">
+                {imageAlt}
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col gap-4">

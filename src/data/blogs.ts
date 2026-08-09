@@ -58,6 +58,8 @@ export interface BlogPost {
   category: BlogCategory;
   /** Describes the intended photo for this article — used as future alt text once real imagery replaces the placeholder. */
   featuredImagePlaceholder: string;
+  /** Real photo path in /public, e.g. "/images/blogs/slug.png". Omit to keep the "Photo coming soon" placeholder box. */
+  featuredImage?: string;
   /** Exactly one post should be `true` at a time — it becomes the large hero card on /blog. */
   featured: boolean;
   tags: string[];
@@ -82,6 +84,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "5 min",
     category: "Elder Care",
     featuredImagePlaceholder: "A caregiver assisting an elderly parent at home",
+    featuredImage: "/images/blogs/10-signs.png",
     featured: false,
     tags: ["elder care", "aging parents", "home care signs", "senior health"],
     content: [
@@ -142,6 +145,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min",
     category: "Home Nursing",
     featuredImagePlaceholder: "A home nurse checking on a recovering patient",
+        featuredImage: "/images/blogs/nursing-speed-recovery.png",
     featured: false,
     tags: ["home nursing", "post-surgery recovery", "wound care", "recovery at home"],
     content: [
@@ -213,6 +217,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "4 min",
     category: "Caregiver Guide",
     featuredImagePlaceholder: "A family meeting with a caregiver in their living room",
+    featuredImage: "/images/blogs/choose.png",
     featured: false,
     tags: ["caregiver guide", "choosing a caregiver", "home care tips", "family caregiving"],
     content: [
@@ -274,6 +279,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "7 min",
     category: "ICU Care",
     featuredImagePlaceholder: "An ICU nurse monitoring equipment beside a patient's bed at home",
+            featuredImage: "/images/blogs/icu-care.png",
     featured: false,
     tags: ["icu care at home", "critical care", "home icu setup", "ventilator support"],
     content: [
@@ -340,6 +346,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "5 min",
     category: "Physiotherapy",
     featuredImagePlaceholder: "A physiotherapist guiding a patient through a gentle home exercise",
+    featuredImage: "/images/blogs/Physiotherapy.png",
     featured: false,
     tags: ["physiotherapy at home", "home exercises", "mobility", "recovery exercises"],
     content: [
@@ -395,6 +402,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "4 min",
     category: "Wellness",
     featuredImagePlaceholder: "A caregiver helping a senior stay cool and hydrated at home",
+    featuredImage: "/images/blogs/summer.png",
     featured: false,
     tags: ["senior wellness", "summer health tips", "heat safety", "elder care Jaipur"],
     content: [
@@ -451,6 +459,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min",
     category: "Medical Tips",
     featuredImagePlaceholder: "A caregiver organizing a weekly medication pill box",
+    featuredImage: "/images/blogs/medication-management.png",
     featured: true,
     tags: ["medication management", "family caregivers", "medication safety", "home care tips"],
     content: [
@@ -522,6 +531,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "5 min",
     category: "Recovery",
     featuredImagePlaceholder: "A patient resting at home during post-surgery recovery",
+    featuredImage: "/images/blogs/post-surgery.png",
     featured: false,
     tags: ["post surgery recovery", "recovery at home", "wound care", "surgery aftercare"],
     content: [
@@ -574,6 +584,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min",
     category: "Elder Care",
     featuredImagePlaceholder: "A caregiver assisting a bedridden patient with daily care",
+    featuredImage: "/images/blogs/bedridden-patient-care.png",
     featured: false,
     tags: ["bedridden patient care", "pressure sores", "elder care", "home nursing"],
     content: [
@@ -628,6 +639,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "5 min",
     category: "Medical Tips",
     featuredImagePlaceholder: "A nurse offering comfort-focused care to a patient at home",
+    featuredImage: "/images/blogs/palliative-care.png",
     featured: false,
     tags: ["palliative care", "comfort care", "serious illness", "family support"],
     content: [

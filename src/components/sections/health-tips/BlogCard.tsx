@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock, ImageIcon } from "lucide-react";
 import { cn, formatDate } from "@/lib/utils";
@@ -17,6 +18,8 @@ export function BlogCard({
   excerpt,
   readingTime,
   publishDate,
+  featuredImage,
+  featuredImagePlaceholder,
   className,
 }: BlogCardProps) {
   return (
@@ -27,17 +30,29 @@ export function BlogCard({
         className,
       )}
     >
-      <div className="bg-muted flex aspect-video items-center justify-center">
-        <div className="flex flex-col items-center gap-2">
-          <ImageIcon
-            className="text-muted-foreground/50 size-8"
-            aria-hidden="true"
+      {featuredImage ? (
+        <div className="bg-muted relative aspect-video overflow-hidden">
+          <Image
+            src={featuredImage}
+            alt={featuredImagePlaceholder}
+            fill
+            sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition-transform duration-300 ease-out motion-reduce:transition-none group-hover:scale-105"
           />
-          <span className="text-muted-foreground/70 text-xs font-medium">
-            Photo coming soon
-          </span>
         </div>
-      </div>
+      ) : (
+        <div className="bg-muted flex aspect-video items-center justify-center">
+          <div className="flex flex-col items-center gap-2">
+            <ImageIcon
+              className="text-muted-foreground/50 size-8"
+              aria-hidden="true"
+            />
+            <span className="text-muted-foreground/70 text-xs font-medium">
+              Photo coming soon
+            </span>
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-1 flex-col gap-3 p-6">
         <span className="bg-secondary text-primary w-fit rounded-full px-2.5 py-1 text-xs font-medium">
