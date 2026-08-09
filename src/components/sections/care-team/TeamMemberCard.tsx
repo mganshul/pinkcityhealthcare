@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BadgeCheck, UserRound } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -6,6 +7,7 @@ interface TeamMemberCardProps {
   description: string;
   experienceYears: number;
   expertise: string[];
+  image?: string;
   className?: string;
 }
 
@@ -14,6 +16,7 @@ export function TeamMemberCard({
   description,
   experienceYears,
   expertise,
+  image,
   className,
 }: TeamMemberCardProps) {
   return (
@@ -23,17 +26,29 @@ export function TeamMemberCard({
         className,
       )}
     >
-      <div className="bg-muted flex aspect-square items-center justify-center">
-        <div className="flex flex-col items-center gap-2">
-          <UserRound
-            className="text-muted-foreground/50 size-10"
-            aria-hidden="true"
+      {image ? (
+        <div className="bg-muted relative aspect-square overflow-hidden">
+          <Image
+            src={image}
+            alt={role}
+            fill
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover object-top"
           />
-          <span className="text-muted-foreground/70 text-xs font-medium">
-            Photo coming soon
-          </span>
         </div>
-      </div>
+      ) : (
+        <div className="bg-muted flex aspect-square items-center justify-center">
+          <div className="flex flex-col items-center gap-2">
+            <UserRound
+              className="text-muted-foreground/50 size-10"
+              aria-hidden="true"
+            />
+            <span className="text-muted-foreground/70 text-xs font-medium">
+              Photo coming soon
+            </span>
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-1 flex-col items-center gap-3 p-6 text-center">
         <div className="flex flex-col gap-1.5">
