@@ -37,15 +37,13 @@ export const siteConfig = {
     // pan-India headline.
     coverageNote: "Support available across India on request.",
   },
-  // Placeholder destinations until the client provides real profile URLs —
-  // centralized here so every link (header, footer, future pages) updates
-  // in one place when the real accounts are ready.
+  // Real profile URLs — centralized here so every link (header, footer,
+  // future pages) updates in one place if an account changes.
   social: {
-    facebook: "https://facebook.com",
-    instagram: "https://instagram.com",
-    twitter: "",
-    linkedin: "https://linkedin.com",
-    youtube: "https://youtube.com",
+    facebook: "https://www.facebook.com/pinkcityhealthcare",
+    instagram: "https://www.instagram.com/pinkcity.healthcare",
+    google: "https://share.google/OhIIf0w065enDgetF",
+    whatsapp: "https://wa.me/918387863344",
   },
 } as const;
 

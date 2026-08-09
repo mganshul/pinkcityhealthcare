@@ -21,13 +21,12 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/blog",
 });
 
-const socialPlatforms: SocialPlatform[] = [
+const socialPlatforms = [
   "facebook",
   "instagram",
-  "twitter",
-  "linkedin",
-  "youtube",
-];
+  "google",
+  "whatsapp",
+] as const satisfies SocialPlatform[];
 
 export default function BlogPage() {
   const featuredPost = getFeaturedPost();

@@ -21,4 +21,4 @@ export interface BreadcrumbItem {
 }
 
 export type SocialPlatform =
-  "facebook" | "instagram" | "twitter" | "linkedin" | "youtube";
+  "facebook" | "instagram" | "twitter" | "google" | "whatsapp";

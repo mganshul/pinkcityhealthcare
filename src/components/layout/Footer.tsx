@@ -7,13 +7,12 @@ import { googleMapsHref, phoneHref, siteConfig } from "@/constants/site";
 import { footerQuickLinks, legalLinks, services } from "@/data/navigation";
 import type { SocialPlatform } from "@/types/navigation";
 
-const socialPlatforms: SocialPlatform[] = [
+const socialPlatforms = [
   "facebook",
   "instagram",
-  "twitter",
-  "linkedin",
-  "youtube",
-];
+  "google",
+  "whatsapp",
+] as const satisfies SocialPlatform[];
 
 export function Footer() {
   const year = new Date().getFullYear();
