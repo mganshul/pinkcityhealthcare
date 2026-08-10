@@ -1,6 +1,6 @@
-# Pink City Healthcare
+# PinkCity Healthcare
 
-The marketing website for Pink City Healthcare — a home healthcare provider in Jaipur offering nursing, elder care, ICU-level care, physiotherapy, and related services delivered directly to patients' homes.
+The marketing website for PinkCity Healthcare — a home healthcare provider in Jaipur offering nursing, elder care, ICU-level care, physiotherapy, and related services delivered directly to patients' homes.
 
 ## Overview
 
@@ -116,4 +116,4 @@ Deployed to Hostinger. Before deploying:
 
 ## License
 
-Proprietary — all rights reserved. This code is not licensed for reuse, redistribution, or modification outside of Pink City Healthcare's own deployment.
+Proprietary — all rights reserved. This code is not licensed for reuse, redistribution, or modification outside of PinkCity Healthcare's own deployment.

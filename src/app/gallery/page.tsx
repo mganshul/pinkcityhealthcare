@@ -15,7 +15,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Gallery",
   description:
-    "Take a closer look at Pink City Healthcare's caregiving services, professional healthcare team, medical equipment, and training in Jaipur.",
+    "Take a closer look at PinkCity Healthcare's caregiving services, professional healthcare team, medical equipment, and training in Jaipur.",
   path: "/gallery",
 });
 

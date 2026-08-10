@@ -1,4 +1,4 @@
-# Pink City Healthcare — Homepage Creative Direction Exploration
+# PinkCity Healthcare — Homepage Creative Direction Exploration
 
 **Status:** Exploration only — no decision is locked yet. This document proposes three genuinely different visual treatments of the **already-approved** 15-section structure in `HOMEPAGE_BLUEPRINT.md`. Section order, content, and CTA labels stay exactly as locked; only visual philosophy varies.
 

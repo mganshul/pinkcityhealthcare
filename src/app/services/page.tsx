@@ -13,7 +13,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Healthcare Services",
   description:
-    "Explore all 14 home healthcare services from Pink City Healthcare — nursing, elder care, ICU care at home, physiotherapy, and more across Jaipur.",
+    "Explore all 14 home healthcare services from PinkCity Healthcare — nursing, elder care, ICU care at home, physiotherapy, and more across Jaipur.",
   path: "/services",
 });
 

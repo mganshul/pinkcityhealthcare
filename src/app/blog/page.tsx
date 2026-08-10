@@ -17,7 +17,7 @@ import type { SocialPlatform } from "@/types/navigation";
 export const metadata: Metadata = buildPageMetadata({
   title: "Health Tips & Resources",
   description:
-    "Expert healthcare advice, home care guidance, wellness tips, and updates from Pink City Healthcare.",
+    "Expert healthcare advice, home care guidance, wellness tips, and updates from PinkCity Healthcare.",
   path: "/blog",
 });
 
@@ -37,7 +37,7 @@ export default function BlogPage() {
       hero={
         <PageHero
           title="Health Tips & Resources"
-          subtitle="Expert healthcare advice, home care guidance, wellness tips, and updates from Pink City Healthcare."
+          subtitle="Expert healthcare advice, home care guidance, wellness tips, and updates from PinkCity Healthcare."
           breadcrumbs={[{ label: "Blog" }]}
         />
       }
@@ -64,7 +64,7 @@ export default function BlogPage() {
           </h2>
           <p className="text-muted-foreground text-balance">
             We don&apos;t have a newsletter yet — but you can always reach out directly, or
-            follow us on social media for healthcare tips and updates from Pink City Healthcare.
+            follow us on social media for healthcare tips and updates from PinkCity Healthcare.
           </p>
           <Link href="/contact" className={buttonVariants({ size: "lg" })}>
             Contact Us

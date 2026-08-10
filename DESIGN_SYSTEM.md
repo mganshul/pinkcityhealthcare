@@ -1,4 +1,4 @@
-# Pink City Healthcare — Design System
+# PinkCity Healthcare — Design System
 
 **Status:** Locked. This document is the single source of truth for every page built after Milestone 3. If a future decision conflicts with this document, this document wins — raise a change proposal (see [Governance](#governance)) rather than deviating silently.
 
@@ -23,7 +23,7 @@
 ## 1. Design Philosophy
 
 ### Brand personality
-Pink City Healthcare sits at the intersection of two things people rarely associate: **clinical competence** and **domestic warmth**. Most healthcare brands default to cold blue-and-white sterility because it signals "trustworthy." We keep the trust (blue stays our dominant color) but refuse the coldness — the brand's own name gives us permission to use pink as a deliberate, human accent against clinical blue. Five traits, in priority order:
+PinkCity Healthcare sits at the intersection of two things people rarely associate: **clinical competence** and **domestic warmth**. Most healthcare brands default to cold blue-and-white sterility because it signals "trustworthy." We keep the trust (blue stays our dominant color) but refuse the coldness — the brand's own name gives us permission to use pink as a deliberate, human accent against clinical blue. Five traits, in priority order:
 
 1. **Trustworthy** — first and non-negotiable. Every design decision is filtered through "does this make a stranger comfortable letting us into their home to care for someone they love?"
 2. **Warm** — human, not institutional. We are visiting someone's home, not running a hospital ward.
@@ -380,7 +380,7 @@ Header (sticky, transparent-on-hero) and Footer are already built in Milestone 2
 
 ### 5. Why Choose Us
 - **Purpose:** competitive differentiation, now that the visitor understands the offering
-- **Headline:** "Why Families Choose Pink City Healthcare"
+- **Headline:** "Why Families Choose PinkCity Healthcare"
 - **Subheading:** reinforce differentiators — verified staff, 24/7 availability, affordability, local expertise
 - **CTA:** none, or a soft link to the About page
 - **Imagery:** Feature Cards with icons, optionally one supporting photo

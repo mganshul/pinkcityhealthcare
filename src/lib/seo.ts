@@ -36,7 +36,7 @@ export const baseMetadata: Metadata = {
 };
 
 interface PageMetadataOptions {
-  /** Page-specific segment only — the root layout's `title.template` appends " | Pink City Healthcare". */
+  /** Page-specific segment only — the root layout's `title.template` appends " | PinkCity Healthcare". */
   title: string;
   description?: string;
   /** e.g. "/about" — used to build the canonical URL and Open Graph url. */

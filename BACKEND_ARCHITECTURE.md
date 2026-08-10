@@ -1,6 +1,6 @@
 # Backend Architecture
 
-The backend foundation for Pink City Healthcare, built in Milestone 27. This is infrastructure only — no page, form, or frontend component reads from or writes to any of this yet. It exists so every future data-backed feature (appointment booking, contact form, an eventual CMS-backed blog/testimonials/gallery, and an admin dashboard) reuses the same client setup, validation, query, and Server Action patterns instead of each reinventing them.
+The backend foundation for PinkCity Healthcare, built in Milestone 27. This is infrastructure only — no page, form, or frontend component reads from or writes to any of this yet. It exists so every future data-backed feature (appointment booking, contact form, an eventual CMS-backed blog/testimonials/gallery, and an admin dashboard) reuses the same client setup, validation, query, and Server Action patterns instead of each reinventing them.
 
 Stack: Next.js 15 App Router, TypeScript, Supabase (Postgres + Auth), Hostinger (hosting/domain), GitHub (source control/CI), React Hook Form, Zod.
 

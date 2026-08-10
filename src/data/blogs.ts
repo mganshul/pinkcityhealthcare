@@ -66,11 +66,11 @@ export interface BlogPost {
   seo?: BlogSeo;
 }
 
-const nurse: BlogAuthor = { name: "Pink City Healthcare Team", role: "Senior Registered Nurse" };
-const elderCarePro: BlogAuthor = { name: "Pink City Healthcare Team", role: "Elder Care Professional" };
-const icuSpecialist: BlogAuthor = { name: "Pink City Healthcare Team", role: "ICU Care Specialist" };
-const physio: BlogAuthor = { name: "Pink City Healthcare Team", role: "Physiotherapy Specialist" };
-const coordinator: BlogAuthor = { name: "Pink City Healthcare Team", role: "Home Healthcare Coordinator" };
+const nurse: BlogAuthor = { name: "PinkCity Healthcare Team", role: "Senior Registered Nurse" };
+const elderCarePro: BlogAuthor = { name: "PinkCity Healthcare Team", role: "Elder Care Professional" };
+const icuSpecialist: BlogAuthor = { name: "PinkCity Healthcare Team", role: "ICU Care Specialist" };
+const physio: BlogAuthor = { name: "PinkCity Healthcare Team", role: "Physiotherapy Specialist" };
+const coordinator: BlogAuthor = { name: "PinkCity Healthcare Team", role: "Home Healthcare Coordinator" };
 
 export const blogPosts: BlogPost[] = [
   {
@@ -117,7 +117,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "quote",
         text: "Families often wait until there's a crisis before calling us. It's almost always easier — for the patient and for the family — to start with lighter support before that point.",
-        attribution: "Pink City Healthcare Care Coordinator",
+        attribution: "PinkCity Healthcare Care Coordinator",
       },
       {
         type: "callout",
@@ -241,7 +241,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "quote",
         text: "We didn't just want someone qualified on paper. We wanted someone who'd actually sit and talk with my mother, not just get through a task list.",
-        attribution: "A Pink City Healthcare family",
+        attribution: "A PinkCity Healthcare family",
       },
       { type: "heading", text: "Red Flags to Watch For" },
       {
@@ -494,7 +494,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "quote",
         text: "Families are usually managing this perfectly well until something changes — a new prescription, a hospital stay, a busier week. That's exactly when a second set of trained eyes matters most.",
-        attribution: "Pink City Healthcare Senior Registered Nurse",
+        attribution: "PinkCity Healthcare Senior Registered Nurse",
       },
       {
         type: "table",
@@ -662,7 +662,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "quote",
         text: "Palliative care isn't a final step — it's an extra layer of support focused entirely on comfort, alongside whatever treatment plan the doctor has set.",
-        attribution: "Pink City Healthcare Senior Registered Nurse",
+        attribution: "PinkCity Healthcare Senior Registered Nurse",
       },
       { type: "heading", text: "What Home-Based Palliative Support Looks Like" },
       {

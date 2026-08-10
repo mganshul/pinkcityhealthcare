@@ -21,7 +21,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Careers",
   description:
-    "Join the Pink City Healthcare team in Jaipur — explore current openings for nurses, caregivers, and healthcare professionals and apply online.",
+    "Join the PinkCity Healthcare team in Jaipur — explore current openings for nurses, caregivers, and healthcare professionals and apply online.",
   path: "/careers",
 });
 
@@ -114,7 +114,7 @@ export default function CareersPage() {
       hero={
         <PageHero
           title="Join Our Team"
-          subtitle="Become part of Pink City Healthcare and help us deliver compassionate home healthcare services across Jaipur."
+          subtitle="Become part of PinkCity Healthcare and help us deliver compassionate home healthcare services across Jaipur."
           breadcrumbs={[{ label: "Careers" }]}
         />
       }
@@ -144,7 +144,7 @@ export default function CareersPage() {
       <Section id="current-openings" className="bg-secondary/40">
         <SectionHeader
           eyebrow="Current Openings"
-          title="Explore Opportunities at Pink City Healthcare"
+          title="Explore Opportunities at PinkCity Healthcare"
           description="Click Apply Now on any role below to submit your application — no page reload, no separate account needed."
         />
         <div className="mt-10">
@@ -153,7 +153,7 @@ export default function CareersPage() {
       </Section>
 
       <CTASection
-        title="Ready to Join Pink City Healthcare?"
+        title="Ready to Join PinkCity Healthcare?"
         description="Explore our current openings above, or reach out directly if you have questions about working with us."
         primaryCta={{ label: "Contact Us", href: "/contact" }}
         secondaryCta={{ label: "Call Now", href: phoneHref }}

@@ -29,7 +29,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Book an Appointment",
   description:
-    "Request professional home healthcare services from Pink City Healthcare in Jaipur — fill out the appointment form and our care coordinator will contact you shortly.",
+    "Request professional home healthcare services from PinkCity Healthcare in Jaipur — fill out the appointment form and our care coordinator will contact you shortly.",
   path: "/appointment",
 });
 
@@ -72,7 +72,7 @@ export default function AppointmentPage() {
       hero={
         <PageHero
           title="Book an Appointment"
-          subtitle="Request professional home healthcare services from Pink City Healthcare."
+          subtitle="Request professional home healthcare services from PinkCity Healthcare."
           breadcrumbs={[{ label: "Book an Appointment" }]}
         />
       }

@@ -17,7 +17,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact Us",
   description:
-    "Get in touch with Pink City Healthcare in Jaipur — call, WhatsApp, or send us a message and our team will respond quickly.",
+    "Get in touch with PinkCity Healthcare in Jaipur — call, WhatsApp, or send us a message and our team will respond quickly.",
   path: "/contact",
 });
 

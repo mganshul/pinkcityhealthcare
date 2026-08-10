@@ -26,7 +26,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Service Areas",
   description:
-    "Pink City Healthcare provides home healthcare services across Jaipur — including Jhotwara, Vaishali Nagar, Mansarovar, and Malviya Nagar — with support available across India on request.",
+    "PinkCity Healthcare provides home healthcare services across Jaipur — including Jhotwara, Vaishali Nagar, Mansarovar, and Malviya Nagar — with support available across India on request.",
   path: "/service-areas",
 });
 
@@ -112,7 +112,7 @@ export default function ServiceAreasPage() {
 
       <ContentSection eyebrow="Beyond Jaipur" title="Coverage Beyond Jaipur">
         <p>
-          Pink City Healthcare primarily serves Jaipur, where our full team of
+          PinkCity Healthcare primarily serves Jaipur, where our full team of
           verified nurses and caregivers is based. For long-term care
           requirements outside the city, support can also be arranged across
           India based on availability — contact our care coordinators to

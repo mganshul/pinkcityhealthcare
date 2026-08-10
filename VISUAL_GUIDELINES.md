@@ -1,4 +1,4 @@
-# Pink City Healthcare — Visual Guidelines
+# PinkCity Healthcare — Visual Guidelines
 
 **Status:** Final and binding. The creative direction is approved — this document is no longer exploration, it's law. Every page built from this point forward follows these rules exactly. Where a rule here is more specific than `DESIGN_SYSTEM.md`, this document wins; where it's silent, `DESIGN_SYSTEM.md` still applies. Change requests go through that document's [Governance](./DESIGN_SYSTEM.md#governance) process, not silent deviation on a page-by-page basis.
 

@@ -19,7 +19,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "About Us",
   description:
-    "Learn why Pink City Healthcare was founded, our mission and values, and the team bringing professional home healthcare to families across Jaipur.",
+    "Learn why PinkCity Healthcare was founded, our mission and values, and the team bringing professional home healthcare to families across Jaipur.",
   path: "/about",
 });
 
@@ -57,7 +57,7 @@ export default function AboutPage() {
     <PageLayout
       hero={
         <PageHero
-          title="About Pink City Healthcare"
+          title="About PinkCity Healthcare"
           subtitle="Compassionate healthcare delivered to families in Jaipur with professionalism, dignity, and care."
           breadcrumbs={[{ label: "About Us" }]}
         />
@@ -65,9 +65,9 @@ export default function AboutPage() {
     >
       <ImageTextSection
         eyebrow="Our Story"
-        title="Why We Started Pink City Healthcare"
+        title="Why We Started PinkCity Healthcare"
         image="/images/about/about-final.png"
-        imageAlt="The Pink City Healthcare team"
+        imageAlt="The PinkCity Healthcare team"
       >
         <p>{siteConfig.story}</p>
         <p>
@@ -88,7 +88,7 @@ export default function AboutPage() {
         title="Bringing Hospital-Grade Care Home"
         imagePosition="left"
         image="/images/about/mission.png"
-        imageAlt="The Pink City Healthcare Mission: Bringing Hospital-Grade Care Home"
+        imageAlt="The PinkCity Healthcare Mission: Bringing Hospital-Grade Care Home"
       >
         <p>
           Our mission is to make professional, verified healthcare accessible
@@ -107,7 +107,7 @@ export default function AboutPage() {
         title="A Trusted Name in Home Healthcare Across Jaipur"
       >
         <p>
-          We want every family in Jaipur to think of Pink City Healthcare first
+          We want every family in Jaipur to think of PinkCity Healthcare first
           — not because we&apos;re the loudest, but because we&apos;re
           consistently reliable, verified, and present when it matters.
         </p>
@@ -117,7 +117,7 @@ export default function AboutPage() {
         <SectionHeader
           eyebrow="Core Values"
           title="What Guides Our Care"
-          description="Four principles every caregiver at Pink City Healthcare is chosen and trained around."
+          description="Four principles every caregiver at PinkCity Healthcare is chosen and trained around."
         />
         <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
           {coreValues.map((value) => (
@@ -128,7 +128,7 @@ export default function AboutPage() {
 
       <ContentSection
         eyebrow="Why Choose Us"
-        title="Why Families Trust Pink City Healthcare"
+        title="Why Families Trust PinkCity Healthcare"
       >
         <p>
           Every caregiver we place is background-verified and clinically
@@ -142,10 +142,10 @@ export default function AboutPage() {
         eyebrow="Founder's Message"
         title="A Personal Note From Mr. Rizwan Khan"
         image="/images/about/founder.png"
-        imageAlt="Mr. Rizwan Khan, Founder of Pink City Healthcare"
+        imageAlt="Mr. Rizwan Khan, Founder of PinkCity Healthcare"
       >
         <p>
-          I started Pink City Healthcare after seeing how difficult it was for
+          I started PinkCity Healthcare after seeing how difficult it was for
           families in Jaipur to find reliable, professional care at home — not
           just a hospital referral, but someone they could trust inside their
           own house. My goal has always been simple: every family we work with

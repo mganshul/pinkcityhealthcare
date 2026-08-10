@@ -14,7 +14,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Patient & Family Testimonials",
   description:
-    "Read what families across Jaipur say about their experience with Pink City Healthcare's home nursing, elder care, ICU care, and physiotherapy services.",
+    "Read what families across Jaipur say about their experience with PinkCity Healthcare's home nursing, elder care, ICU care, and physiotherapy services.",
   path: "/testimonials",
 });
 
@@ -30,7 +30,7 @@ export default function TestimonialsPage() {
       hero={
         <PageHero
           title="Patient & Family Testimonials"
-          subtitle="Read what families across Jaipur say about their experience with Pink City Healthcare."
+          subtitle="Read what families across Jaipur say about their experience with PinkCity Healthcare."
           breadcrumbs={[{ label: "Testimonials" }]}
         />
       }
@@ -78,7 +78,7 @@ export default function TestimonialsPage() {
 
       <CTASection
         title="Experience Compassionate Care at Home"
-        description="Join the families across Jaipur who trust Pink City Healthcare for professional, compassionate home healthcare."
+        description="Join the families across Jaipur who trust PinkCity Healthcare for professional, compassionate home healthcare."
         primaryCta={{ label: "Book Appointment", href: "/appointment" }}
         secondaryCta={{ label: "Call Now", href: phoneHref }}
       />

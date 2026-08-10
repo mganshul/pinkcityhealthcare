@@ -7,10 +7,10 @@ import type { LegalPageData } from "@/data/legal/types";
 export const refundPolicyContent: LegalPageData = {
   title: "Refund Policy",
   description:
-    "Learn about Pink City Healthcare's appointment cancellation and refund eligibility, processing time, and how emergency service requests are handled.",
+    "Learn about PinkCity Healthcare's appointment cancellation and refund eligibility, processing time, and how emergency service requests are handled.",
   lastUpdated: "August 10, 2026",
   intro:
-    "This Refund Policy explains how appointment cancellations and any related refunds are handled at Pink City Healthcare. It applies alongside our Terms & Conditions.",
+    "This Refund Policy explains how appointment cancellations and any related refunds are handled at PinkCity Healthcare. It applies alongside our Terms & Conditions.",
   sections: [
     {
       id: "appointment-cancellation",

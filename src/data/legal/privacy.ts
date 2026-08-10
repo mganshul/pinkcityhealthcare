@@ -7,7 +7,7 @@ import type { LegalPageData } from "@/data/legal/types";
 export const privacyPolicyContent: LegalPageData = {
   title: "Privacy Policy",
   description:
-    "Read how Pink City Healthcare collects, uses, and protects your personal information when you use our website and home healthcare services.",
+    "Read how PinkCity Healthcare collects, uses, and protects your personal information when you use our website and home healthcare services.",
   lastUpdated: "August 10, 2026",
   intro:
     "This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website, book an appointment, or otherwise get in touch with us.",

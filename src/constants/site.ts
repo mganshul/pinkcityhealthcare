@@ -2,8 +2,8 @@
 // from this object (or the derived helpers below) rather than hardcoding
 // contact/location details — update the client's details only here.
 export const siteConfig = {
-  name: "Pink City Healthcare",
-  shortName: "Pink City Healthcare",
+  name: "PinkCity Healthcare",
+  shortName: "PinkCity Healthcare",
   domain: "pinkcityhealthcare.com",
   url: "https://pinkcityhealthcare.com",
   tagline: "Compassionate Healthcare at Home",
@@ -15,7 +15,7 @@ export const siteConfig = {
   // Ready for the About page / company-story section — kept here so the
   // wording stays consistent wherever the founder is introduced.
   story:
-    "Founded by Mr. Rizwan Khan, Pink City Healthcare was established with a vision to bring compassionate, professional healthcare directly into the homes of families across Jaipur.",
+    "Founded by Mr. Rizwan Khan, PinkCity Healthcare was established with a vision to bring compassionate, professional healthcare directly into the homes of families across Jaipur.",
   contact: {
     phone: "+91 8387863344",
     whatsapp: "+91 8387863344",

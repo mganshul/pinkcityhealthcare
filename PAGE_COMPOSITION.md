@@ -30,7 +30,7 @@ export default function AboutPage() {
     <PageLayout
       hero={
         <PageHero
-          title="About Pink City Healthcare"
+          title="About PinkCity Healthcare"
           breadcrumbs={[{ label: "About Us" }]}
         />
       }

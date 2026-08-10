@@ -1,4 +1,4 @@
-# Pink City Healthcare — Homepage Blueprint
+# PinkCity Healthcare — Homepage Blueprint
 
 **Status:** Proposed refinement of [DESIGN_SYSTEM.md → Part 4](./DESIGN_SYSTEM.md#4-homepage-ux-blueprint), pending your approval per that document's own governance rule. Part 4 sketched 13 sections at a high level; this document is the full 15-section working blueprint — same trust-funnel logic, now built out in detail against the specific, diverse audience this page has to serve in one scroll: home-nursing families, elder-care decision-makers, post-surgery patients, ICU-at-home families, new parents, physiotherapy patients, and families searching for a long-term caregiver.
 
@@ -115,7 +115,7 @@ Header (sticky, transparent-on-hero) and Footer are already built in Milestone 2
 
 - **Purpose:** Competitive differentiation, once the visitor understands both the offering and how easy it is to start.
 - **Why this position:** Differentiation only lands once a visitor already understands *what* you offer and *how* to get it — leading with "why us" before "what we do" would be answering a question nobody's asked yet.
-- **Main Heading:** "Why Families Choose Pink City Healthcare"
+- **Main Heading:** "Why Families Choose PinkCity Healthcare"
 - **Supporting Text:** Reinforces verified/background-checked staff, 24/7 availability, transparent pricing, and local Jaipur expertise as the four pillars.
 - **Primary / Secondary CTA:** None, or a soft link to the About page.
 - **Suggested imagery:** Feature Cards with icons; optionally one supporting photograph breaking up the icon grid.

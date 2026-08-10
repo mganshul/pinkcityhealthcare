@@ -7,10 +7,10 @@ import type { LegalPageData } from "@/data/legal/types";
 export const termsAndConditionsContent: LegalPageData = {
   title: "Terms & Conditions",
   description:
-    "Read the terms and conditions that apply to using the Pink City Healthcare website and booking our home healthcare services.",
+    "Read the terms and conditions that apply to using the PinkCity Healthcare website and booking our home healthcare services.",
   lastUpdated: "August 10, 2026",
   intro:
-    "These Terms & Conditions govern your use of our website and the home healthcare services offered by Pink City Healthcare. By using this website or requesting our services, you agree to the terms below.",
+    "These Terms & Conditions govern your use of our website and the home healthcare services offered by PinkCity Healthcare. By using this website or requesting our services, you agree to the terms below.",
   sections: [
     {
       id: "acceptance",
