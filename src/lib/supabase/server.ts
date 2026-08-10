@@ -32,10 +32,16 @@ export function createSupabaseServerClient() {
 
 /**
  * Server-only Supabase client using the service role key. This BYPASSES Row
- * Level Security entirely — never call it from anything that isn't a
- * verified-admin code path. Reserved for the future admin dashboard
+ * Level Security entirely. Reserved for the future admin dashboard
  * (reading/managing appointments, contact messages, blog content, gallery,
- * testimonials, admins, settings). Nothing in this codebase calls it yet.
+ * testimonials, admins, settings), plus the three public-form insert
+ * queries (contacts.ts, appointments.ts, career-applications.ts): those
+ * tables give anon an INSERT policy but only an admin-only SELECT policy,
+ * and `.select()` after `.insert()` needs SELECT-policy access to return
+ * the row — anon can write but can never read it back under its own RLS
+ * grant, so those queries use this client instead. In both cases the write
+ * itself is still fully Zod-validated before this is ever called; this
+ * client only skips the RLS check, never application-level validation.
  *
  * The `server-only` import at the top of this file already prevents this
  * module from being bundled into client code; this function adds a second,
