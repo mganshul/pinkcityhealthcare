@@ -13,14 +13,14 @@ export interface Statistic {
 // up-to-date business numbers before production launch.
 export const statistics: Statistic[] = [
   {
-    value: 5000,
+    value: 1000,
     suffix: "+",
     label: "Families Served",
     description: "Homes across Jaipur we've supported with dedicated care.",
     icon: Users,
   },
   {
-    value: 100,
+    value: 40,
     suffix: "+",
     label: "Qualified Nurses",
     description: "Verified, background-checked professionals on our team.",

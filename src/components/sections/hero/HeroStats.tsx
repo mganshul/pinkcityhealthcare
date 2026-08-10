@@ -8,9 +8,9 @@ interface HeroStat {
 }
 
 const stats: HeroStat[] = [
-  { value: 5000, suffix: "+", label: "Families served" },
-  { value: 100, suffix: "+", label: "Qualified nurses" },
-  { value: 10, suffix: "+", label: "Years of experience" },
+  { value: 1000, suffix: "+", label: "Families served" },
+  { value: 40, suffix: "+", label: "Qualified nurses" },
+  { value: 5, suffix: "+", label: "Years of experience" },
 ];
 
 interface HeroStatsProps {
