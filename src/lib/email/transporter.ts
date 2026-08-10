@@ -1,5 +1,6 @@
 import "server-only";
 import nodemailer from "nodemailer";
+import { siteConfig } from "@/constants/site";
 
 const smtpHost = process.env.SMTP_HOST;
 const smtpPort = process.env.SMTP_PORT;
@@ -42,6 +43,13 @@ export function getEmailTransporter(): nodemailer.Transporter | null {
   return cachedTransporter;
 }
 
+/**
+ * Formatted for the `from:` header specifically — a bare address makes
+ * inbox previews (Gmail, Outlook, ...) fall back to showing the mailbox's
+ * local part ("help") instead of the business name, since there's no
+ * display name to read.
+ */
 export function getEmailFromAddress(): string {
-  return process.env.EMAIL_FROM || smtpUser || "";
+  const address = process.env.EMAIL_FROM || smtpUser || "";
+  return address ? `"${siteConfig.name}" <${address}>` : "";
 }
