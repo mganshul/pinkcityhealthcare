@@ -9,7 +9,7 @@ import {
   renderButton,
   renderEmailLayout,
 } from "@/lib/email/layout";
-import { phoneHref, siteConfig } from "@/constants/site";
+import { adminNotificationRecipients, phoneHref, siteConfig } from "@/constants/site";
 import type { ContactMessageRecord } from "@/lib/supabase/queries/contacts";
 
 /**
@@ -80,7 +80,7 @@ export async function sendContactAdminNotification(
   try {
     await transporter.sendMail({
       from: getEmailFromAddress(),
-      to: siteConfig.contact.email,
+      to: adminNotificationRecipients,
       subject: `New contact message — ${contactMessage.subject}`,
       text: [
         "A new message was submitted through the website contact form.",

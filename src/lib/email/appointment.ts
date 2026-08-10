@@ -9,7 +9,7 @@ import {
   renderButton,
   renderEmailLayout,
 } from "@/lib/email/layout";
-import { phoneHref, siteConfig } from "@/constants/site";
+import { adminNotificationRecipients, phoneHref, siteConfig } from "@/constants/site";
 import { services } from "@/data/services";
 import type { AppointmentRecord } from "@/lib/supabase/queries/appointments";
 
@@ -102,7 +102,7 @@ export async function sendAppointmentAdminNotification(
   try {
     await transporter.sendMail({
       from: getEmailFromAddress(),
-      to: siteConfig.contact.email,
+      to: adminNotificationRecipients,
       subject: `New appointment request — ${appointment.full_name}`,
       text: [
         "A new appointment request was submitted on the website.",

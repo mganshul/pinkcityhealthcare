@@ -20,6 +20,10 @@ export const siteConfig = {
     phone: "+91 8387863344",
     whatsapp: "+91 8387863344",
     email: "help@pinkcityhealthcare.com",
+    // Founder's personal inbox — also copied on every admin form
+    // notification (see adminNotificationRecipients below), but never used
+    // as a customer-facing reply address.
+    founderEmail: "mohmmadrizwankhansk@gmail.com",
     address: {
       line1: "317, Sanjay Nagar D",
       line2: "Jhotwara",
@@ -46,6 +50,15 @@ export const siteConfig = {
     whatsapp: "https://wa.me/918387863344",
   },
 } as const;
+
+// Every "new contact message / appointment / job application" admin
+// notification goes to all of these — the business inbox plus the
+// founder's personal email — so it's defined once and reused across
+// src/lib/email/{contact,appointment,career}.ts rather than duplicated.
+export const adminNotificationRecipients = [
+  siteConfig.contact.email,
+  siteConfig.contact.founderEmail,
+];
 
 // Centralized so tel:/wa.me href formatting isn't re-derived at every call site.
 export const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`;

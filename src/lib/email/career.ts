@@ -9,7 +9,7 @@ import {
   renderButton,
   renderEmailLayout,
 } from "@/lib/email/layout";
-import { phoneHref, siteConfig } from "@/constants/site";
+import { adminNotificationRecipients, phoneHref, siteConfig } from "@/constants/site";
 import type { CareerApplicationRecord } from "@/lib/supabase/queries/career-applications";
 
 /**
@@ -87,7 +87,7 @@ export async function sendCareerApplicationAdminNotification(
   try {
     await transporter.sendMail({
       from: getEmailFromAddress(),
-      to: siteConfig.contact.email,
+      to: adminNotificationRecipients,
       subject: `New job application — ${application.position} (${application.full_name})`,
       text: [
         "A new job application was submitted through the website.",
