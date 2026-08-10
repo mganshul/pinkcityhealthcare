@@ -689,6 +689,78 @@ export const blogPosts: BlogPost[] = [
       keywords: ["palliative care at home Jaipur", "comfort care for serious illness", "home palliative support"],
     },
   },
+  {
+    id: "choosing-medical-equipment-for-home-care",
+    slug: "choosing-the-right-medical-equipment-for-home-care",
+    title: "Choosing the Right Medical Equipment for Home Care",
+    excerpt:
+      "Hospital beds, oxygen concentrators, wheelchairs — knowing what your loved one actually needs, and what to check before renting, makes home care safer from day one.",
+    author: coordinator,
+    publishDate: "2026-08-10",
+    readingTime: "5 min",
+    category: "Medical Tips",
+    featuredImagePlaceholder: "A hospital bed and oxygen concentrator set up in a home care room",
+        featuredImage: "/images/blogs/medical-equipment.png",
+    featured: false,
+    tags: ["medical equipment", "home care equipment", "hospital bed rental", "oxygen concentrator"],
+    content: [
+      {
+        type: "paragraph",
+        text: "Setting up a home for recovery or long-term care often comes down to more than arranging a caregiver — the right equipment matters just as much. Getting it wrong, or skipping something the patient actually needs, can slow recovery or create safety risks that are easy to avoid.",
+      },
+      { type: "heading", text: "Common Equipment Used in Home Care" },
+      {
+        type: "list",
+        style: "bullet",
+        items: [
+          "Hospital beds — for positioning, pressure relief, and easier caregiving",
+          "Oxygen concentrators — for patients prescribed home oxygen therapy",
+          "Wheelchairs and walkers — for safe mobility during recovery",
+          "Patient monitors — for tracking vitals like heart rate and oxygen levels",
+          "Pressure-relief mattresses and cushions — especially for bedridden or low-mobility patients",
+        ],
+      },
+      { type: "heading", text: "How to Know What You Actually Need" },
+      {
+        type: "paragraph",
+        text: "The starting point should always be your doctor's or discharging hospital's recommendation, not a guess based on what seems useful. A treating physician's guidance on mobility level, oxygen requirements, and expected recovery timeline determines what equipment actually belongs in the home — renting more than that just adds clutter and cost.",
+      },
+      {
+        type: "quote",
+        text: "Families sometimes over-order out of caution, or under-order because they didn't realize a hospital bed would make caregiving so much easier. A quick conversation before delivery day saves both problems.",
+        attribution: "PinkCity Healthcare Home Healthcare Coordinator",
+      },
+      { type: "heading", text: "What to Check Before Renting Equipment" },
+      {
+        type: "list",
+        style: "ordered",
+        items: [
+          "Is the equipment cleaned, checked, and functioning before it reaches your home?",
+          "Does the rental include delivery, setup, and a usage demonstration?",
+          "Can the rental period be extended if recovery takes longer than expected?",
+          "What's the process if something malfunctions mid-rental?",
+          "Is there ongoing support available for questions between visits?",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        title: "Set up the space before the equipment arrives",
+        text: "Clear enough room around the bed for a caregiver to move on both sides, confirm a nearby power outlet for anything electrical, and keep the area easy to clean — small preparation that makes daily care noticeably easier.",
+      },
+      {
+        type: "paragraph",
+        text: "If you're setting up a home for recovery or ongoing care, it's worth arranging equipment alongside your caregiving plan — not as an afterthought once the patient is already home.",
+      },
+    ],
+    seo: {
+      keywords: [
+        "medical equipment for home care",
+        "hospital bed rental Jaipur",
+        "oxygen concentrator rental Jaipur",
+      ],
+    },
+  },
 ];
 
 export const blogCategoryFilters: { label: string; value: BlogCategory | "all" }[] = [
