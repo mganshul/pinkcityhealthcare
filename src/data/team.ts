@@ -12,15 +12,12 @@ export interface TeamMember {
 // TODO: Placeholder profiles for development only. Photos are real; names
 // and credentials still need to be replaced with verified staff details
 // before production launch.
+//
+// Leadership (Founder, Director) is intentionally not listed here — that's
+// siteConfig.founder / siteConfig.director, introduced on the Our Team page
+// via its own dedicated section, not treated as a nursing staff card. This
+// array is nursing staff only.
 export const teamMembers: TeamMember[] = [
-  {
-    role: "Director",
-    description:
-      "Leads complex home nursing cases with a calm, detail-oriented approach families can rely on.",
-    experienceYears: 8,
-    expertise: ["Wound Care", "Medication Management", "Vital Monitoring"],
-    image: "/images/staff/staff1.png",
-  },
   {
     role: "ICU Care Specialist",
     description:

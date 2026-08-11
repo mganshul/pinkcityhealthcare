@@ -12,6 +12,12 @@ export const siteConfig = {
   founder: {
     name: "Mr. Rizwan Khan",
   },
+  // Leadership team, alongside the founder above — kept here so the Our
+  // Team page (and anywhere else leadership is introduced) reads from one
+  // source instead of hardcoding the name.
+  director: {
+    name: "Mrs. Naziya Khan",
+  },
   // Ready for the About page / company-story section — kept here so the
   // wording stays consistent wherever the founder is introduced.
   story:

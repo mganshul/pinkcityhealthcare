@@ -4,6 +4,12 @@ import { ImageIcon } from "lucide-react";
 import { Section } from "@/components/common/Section";
 import { cn } from "@/lib/utils";
 
+const IMAGE_OBJECT_POSITION_CLASSES = {
+  center: "object-center",
+  top: "object-top",
+  bottom: "object-bottom",
+} as const;
+
 interface ImageTextSectionProps {
   id?: string;
   eyebrow?: string;
@@ -13,6 +19,8 @@ interface ImageTextSectionProps {
   /** Real photo path in /public, e.g. "/images/about/about-final.png". Omit to keep the "Photo coming soon" placeholder box. */
   image?: string;
   imageAlt?: string;
+  /** Crop anchor for portrait photos in the 4:3 box — "top" keeps faces in frame instead of center-cropping them out. */
+  imageObjectPosition?: keyof typeof IMAGE_OBJECT_POSITION_CLASSES;
   className?: string;
 }
 
@@ -29,6 +37,7 @@ export function ImageTextSection({
   imagePosition = "right",
   image,
   imageAlt = "Photo coming soon",
+  imageObjectPosition = "center",
   className,
 }: ImageTextSectionProps) {
   return (
@@ -46,7 +55,7 @@ export function ImageTextSection({
               alt={imageAlt}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
+              className={cn("object-cover", IMAGE_OBJECT_POSITION_CLASSES[imageObjectPosition])}
             />
           ) : (
             <div className="flex flex-col items-center gap-2">

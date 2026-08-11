@@ -56,6 +56,27 @@ export default function OurTeamPage() {
         </Link>
       </ImageTextSection>
 
+      <ImageTextSection
+        eyebrow="Our Leadership"
+        title="Meet Our Director"
+        imagePosition="left"
+        image="/images/staff/staff1.png"
+        imageAlt={`${siteConfig.director.name}, Director at ${siteConfig.name}`}
+        imageObjectPosition="top"
+      >
+        <p>
+          {siteConfig.director.name} leads {siteConfig.name}&apos;s
+          day-to-day operations, working closely with our care coordinators
+          and nursing staff to make sure every family receives the same
+          standard of compassionate, professional care.
+        </p>
+        <p className="text-foreground">
+          <strong className="font-semibold">{siteConfig.director.name}</strong>
+          <br />
+          Director, {siteConfig.name}
+        </p>
+      </ImageTextSection>
+
       <Section id="team" className="bg-secondary/40">
         <SectionHeader
           eyebrow="Our Team"
