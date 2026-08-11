@@ -3,6 +3,7 @@ import { BadgeCheck, UserRound } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface TeamMemberCardProps {
+  name?: string;
   role: string;
   description: string;
   experienceYears: number;
@@ -12,6 +13,7 @@ interface TeamMemberCardProps {
 }
 
 export function TeamMemberCard({
+  name,
   role,
   description,
   experienceYears,
@@ -30,7 +32,7 @@ export function TeamMemberCard({
         <div className="bg-muted relative aspect-square overflow-hidden">
           <Image
             src={image}
-            alt={role}
+            alt={name ? `${name}, ${role} at PinkCity Healthcare` : role}
             fill
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover object-top"
@@ -53,8 +55,11 @@ export function TeamMemberCard({
       <div className="flex flex-1 flex-col items-center gap-3 p-6 text-center">
         <div className="flex flex-col gap-1.5">
           <h3 className="font-heading text-foreground text-lg font-semibold">
-            {role}
+            {name ?? role}
           </h3>
+          {name && (
+            <p className="text-primary text-sm font-medium">{role}</p>
+          )}
           <p className="text-muted-foreground flex items-center justify-center gap-1 text-xs font-semibold">
             <BadgeCheck
               className="text-brand-green size-3.5"

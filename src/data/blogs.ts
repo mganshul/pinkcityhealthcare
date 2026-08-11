@@ -66,7 +66,7 @@ export interface BlogPost {
   seo?: BlogSeo;
 }
 
-const nurse: BlogAuthor = { name: "PinkCity Healthcare Team", role: "Senior Registered Nurse" };
+const nurse: BlogAuthor = { name: "PinkCity Healthcare Team", role: "Director" };
 const elderCarePro: BlogAuthor = { name: "PinkCity Healthcare Team", role: "Elder Care Professional" };
 const icuSpecialist: BlogAuthor = { name: "PinkCity Healthcare Team", role: "ICU Care Specialist" };
 const physio: BlogAuthor = { name: "PinkCity Healthcare Team", role: "Physiotherapy Specialist" };

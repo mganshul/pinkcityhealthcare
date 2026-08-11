@@ -1,4 +1,6 @@
 export interface TeamMember {
+  /** Real, verified staff name. Omit (not fabricated) until the business owner confirms it — the card falls back to leading with `role` instead. */
+  name?: string;
   role: string;
   description: string;
   experienceYears: number;
@@ -12,7 +14,7 @@ export interface TeamMember {
 // before production launch.
 export const teamMembers: TeamMember[] = [
   {
-    role: "Senior Registered Nurse",
+    role: "Director",
     description:
       "Leads complex home nursing cases with a calm, detail-oriented approach families can rely on.",
     experienceYears: 8,
@@ -28,7 +30,7 @@ export const teamMembers: TeamMember[] = [
     image: "/images/staff/staff2.png",
   },
   {
-    role: "Elder Care Professional",
+    role: "Neuro surgery Care Specialist",
     description:
       "Provides patient, dignified daily support that helps seniors stay comfortable and independent at home.",
     experienceYears: 6,
@@ -36,11 +38,35 @@ export const teamMembers: TeamMember[] = [
     image: "/images/staff/staff3.png",
   },
   {
-    role: "Physiotherapy Specialist",
+    role: "Elder Care Professional",
     description:
       "Designs and guides recovery-focused exercise plans tailored to each patient's condition and pace.",
     experienceYears: 7,
     expertise: ["Post-Surgery Recovery", "Mobility Training", "Pain Management"],
     image: "/images/staff/staff4.png",
+  },
+  {
+    role: "Physiotherapy Specialist",
+    description:
+      "Guides patients through personalized mobility and rehabilitation exercises, adjusting each plan as recovery progresses.",
+    experienceYears: 5,
+    expertise: ["Rehabilitation Exercises", "Gait Training", "Post-Injury Recovery"],
+    image: "/images/staff/staff5.png",
+  },
+  {
+    role: "Home Nursing Specialist",
+    description:
+      "Delivers hands-on clinical care at home, from wound dressing to IV management, with a steady, reassuring bedside manner.",
+    experienceYears: 9,
+    expertise: ["Wound Dressing", "IV Management", "Patient Monitoring"],
+    image: "/images/staff/staff6.png",
+  },
+  {
+    role: "Mother & Baby Care Specialist",
+    description:
+      "Supports new mothers and newborns at home with postnatal care, feeding guidance, and newborn health monitoring.",
+    experienceYears: 6,
+    expertise: ["Postnatal Care", "Newborn Monitoring", "Feeding Support"],
+    image: "/images/staff/staff7.png",
   },
 ];

@@ -7,12 +7,14 @@ export { services } from "@/data/services";
 // Every href below must point at a route that actually exists — this list
 // was audited in Milestone 37 and pruned of links to pages that were never
 // built (why-choose-us, our-team, blog, faq, pricing, insurance-support).
-// Milestone 38 built the Blog and re-added it below. If one of the other
-// pruned pages gets built later, add its link back too.
+// Milestone 38 built the Blog and re-added it; Milestone 39 built Our Team
+// and re-added it below. If one of the remaining pruned pages gets built
+// later, add its link back too.
 export const aboutDropdown: NavDropdown = {
   label: "About",
   items: [
     { label: "About Us", href: "/about" },
+    { label: "Our Team", href: "/our-team" },
     { label: "Gallery", href: "/gallery" },
     { label: "Careers", href: "/careers" },
   ],
@@ -27,6 +29,7 @@ export const primaryNavLinks: NavLink[] = [
 
 export const footerQuickLinks: NavLink[] = [
   { label: "About Us", href: "/about" },
+  { label: "Our Team", href: "/our-team" },
   { label: "Blog", href: "/blog" },
   { label: "Gallery", href: "/gallery" },
   { label: "Testimonials", href: "/testimonials" },
