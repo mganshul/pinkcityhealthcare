@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState, type KeyboardEvent } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
@@ -107,16 +108,26 @@ export function GallerySection({ items }: GallerySectionProps) {
               </DialogHeader>
 
               <div className="bg-muted relative flex aspect-video items-center justify-center overflow-hidden rounded-lg">
-                {ActiveIcon && (
-                  <div className="flex flex-col items-center gap-2">
-                    <ActiveIcon
-                      className="text-muted-foreground/50 size-14"
-                      aria-hidden="true"
-                    />
-                    <span className="text-muted-foreground/70 text-sm font-medium">
-                      Photo coming soon
-                    </span>
-                  </div>
+                {activeItem.image ? (
+                  <Image
+                    src={activeItem.image}
+                    alt={activeItem.imageAlt ?? activeItem.title}
+                    fill
+                    sizes="(min-width: 640px) 672px, 100vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  ActiveIcon && (
+                    <div className="flex flex-col items-center gap-2">
+                      <ActiveIcon
+                        className="text-muted-foreground/50 size-14"
+                        aria-hidden="true"
+                      />
+                      <span className="text-muted-foreground/70 text-sm font-medium">
+                        {activeItem.imagePlaceholder ?? "Photo coming soon"}
+                      </span>
+                    </div>
+                  )
                 )}
               </div>
 

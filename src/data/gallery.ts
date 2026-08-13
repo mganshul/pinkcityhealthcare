@@ -13,12 +13,15 @@ export interface GalleryItem {
   category: GalleryCategory;
   description: string;
   /**
-   * Short, descriptive stand-in for the real photograph — written so it can
-   * become the `alt` text the day this field is swapped for a real
-   * `imageUrl` and rendered with next/image. No stock photography is used;
-   * every card renders the same "photo coming soon" placeholder box today.
+   * Short, descriptive stand-in for the real photograph — becomes the
+   * fallback "photo coming soon" caption for entries that don't have a real
+   * `image` yet. Omit once `image` is set.
    */
-  imagePlaceholder: string;
+  imagePlaceholder?: string;
+  /** Real photo path in /public, e.g. "/images/gallery/Elder-care.jpg". Omit to keep the "Photo coming soon" placeholder box. */
+  image?: string;
+  /** Descriptive alt text for the real photo — required alongside `image`. */
+  imageAlt?: string;
   featured: boolean;
 }
 
@@ -46,153 +49,138 @@ export const galleryFilters: {
   { label: "Community Care", value: "community-care" },
 ];
 
-// Single source of truth for the /gallery page. Every entry uses a
-// placeholder image today (see GalleryCard) — swap imagePlaceholder for a
-// real imageUrl per item when photography is available; the card layout
-// and aspect ratio are already built to accept that without changes.
+// Single source of truth for the /gallery page. Training and Community Care
+// have no real photos yet — their filter pills stay listed above (via
+// galleryFilters) and simply show zero results until entries are added here.
 export const galleryItems: GalleryItem[] = [
   {
-    id: "home-nursing-visit",
-    title: "In-Home Nursing Visit",
-    category: "home-nursing",
+    id: "elder-care-at-home",
+    title: "Compassionate Elder Care at Home",
+    category: "elder-care",
     description:
-      "A registered nurse checking vitals and reviewing the day's care plan with a patient at home.",
-    imagePlaceholder: "Nurse taking a patient's vitals in a home setting",
+      "Personalized assistance and companionship to help seniors feel comfortable, supported, and cared for at home.",
+    image: "/images/gallery/Elder-care.jpg",
+    imageAlt: "Elder care and daily assistance provided at home",
     featured: true,
   },
   {
-    id: "medication-administration",
-    title: "Medication Administration",
+    id: "daily-support-assisted-care",
+    title: "Daily Support & Assisted Care",
     category: "home-nursing",
     description:
-      "Careful, on-schedule medication management as part of a patient's daily nursing routine.",
-    imagePlaceholder: "Nurse preparing and administering medication",
-    featured: false,
-  },
-  {
-    id: "companionship-support",
-    title: "Companionship & Daily Support",
-    category: "elder-care",
-    description:
-      "A caregiver assisting an elderly patient with daily routines, conversation, and company.",
-    imagePlaceholder: "Caregiver spending time with an elderly patient",
+      "Compassionate at-home support with meals, personal assistance, and everyday care for elderly patients.",
+    image: "/images/gallery/Home-Nursing.jpg",
+    imageAlt: "Caregiver providing daily support to an elderly patient at home",
     featured: true,
   },
   {
-    id: "assisted-mobility-care",
-    title: "Assisted Mobility Care",
-    category: "elder-care",
+    id: "professional-nursing-care",
+    title: "Professional Nursing Care",
+    category: "home-nursing",
     description:
-      "Gentle, hands-on support helping a senior patient move safely around their home.",
-    imagePlaceholder: "Caregiver assisting a senior patient with mobility",
+      "Skilled nursing support delivered with attention to patient comfort, hygiene, and safety.",
+    image: "/images/gallery/Home-Nursing2.jpg",
+    imageAlt: "Nurse providing professional patient care at home",
     featured: false,
   },
   {
-    id: "icu-monitoring",
-    title: "ICU-Level Monitoring at Home",
+    id: "patient-care-clinical-assistance",
+    title: "Patient Care & Clinical Assistance",
+    category: "home-nursing",
+    description:
+      "Trained healthcare support focused on safe, attentive, and compassionate patient care.",
+    image: "/images/gallery/Home-Nursing3.jpg",
+    imageAlt: "Healthcare professional providing patient care",
+    featured: false,
+  },
+  {
+    id: "bedside-nursing-care",
+    title: "Compassionate Bedside Nursing Care",
+    category: "home-nursing",
+    description:
+      "Attentive nursing support focused on patient comfort, observation, and safe bedside care at home.",
+    image: "/images/gallery/Home-Nursing4.jpg",
+    imageAlt: "Nurse providing attentive bedside care to a patient",
+    featured: false,
+  },
+  {
+    id: "in-home-nursing-support",
+    title: "In-Home Nursing Support",
+    category: "home-nursing",
+    description:
+      "Professional nursing assistance delivered in the comfort of home, with a focus on patient safety, comfort, and continuity of care.",
+    image: "/images/gallery/Home-nursing-care.jpg",
+    imageAlt: "Professional home nursing care for a patient",
+    featured: false,
+  },
+  {
+    id: "patient-monitoring-clinical-care",
+    title: "Patient Monitoring & Clinical Care",
     category: "icu-care",
     description:
-      "Continuous, hospital-grade monitoring delivered by a certified ICU care nurse at the bedside.",
-    imagePlaceholder: "ICU nurse monitoring equipment beside a patient's bed",
+      "Professional nursing care with vital-sign monitoring and clinical assistance for patients requiring closer observation.",
+    image: "/images/gallery/ICU-care.jpg",
+    imageAlt: "Nurse monitoring a patient's vital signs during care",
     featured: true,
   },
   {
-    id: "critical-care-equipment-setup",
-    title: "Critical Care Equipment Setup",
+    id: "clinical-nursing-feeding-support",
+    title: "Clinical Nursing & Feeding Support",
     category: "icu-care",
     description:
-      "Our team setting up and calibrating critical care equipment for a home ICU arrangement.",
-    imagePlaceholder: "Technician setting up home ICU equipment",
+      "Professional nursing support for patients requiring specialized clinical care and feeding assistance.",
+    image: "/images/gallery/ICU-care1.jpg",
+    imageAlt: "Nurse providing clinical patient care and feeding support",
     featured: false,
   },
   {
-    id: "guided-mobility-session",
-    title: "Guided Mobility Session",
-    category: "physiotherapy",
+    id: "critical-care-nursing-support",
+    title: "Critical Care Nursing Support",
+    category: "icu-care",
     description:
-      "A physiotherapist guiding a patient through mobility exercises during a home visit.",
-    imagePlaceholder: "Physiotherapist guiding a patient through an exercise",
+      "Dedicated nursing assistance for patients requiring close monitoring and specialized critical care support at home.",
+    image: "/images/gallery/ICU-care2.jpg",
+    imageAlt: "Nurse providing critical care support to a patient",
     featured: false,
   },
   {
-    id: "post-injury-rehabilitation",
-    title: "Post-Injury Rehabilitation",
-    category: "physiotherapy",
-    description:
-      "Structured rehabilitation support helping a patient regain strength after an injury.",
-    imagePlaceholder: "Physiotherapy session focused on rehabilitation",
-    featured: false,
-  },
-  {
-    id: "hospital-bed-setup",
-    title: "Hospital Bed Setup",
+    id: "patient-monitoring-oxygen-support",
+    title: "Patient Monitoring & Oxygen Support",
     category: "medical-equipment",
     description:
-      "A home hospital bed being set up and adjusted for a patient's comfort and safety.",
-    imagePlaceholder: "Medical equipment team setting up a hospital bed at home",
-    featured: false,
-  },
-  {
-    id: "oxygen-concentrator-delivery",
-    title: "Oxygen Concentrator Delivery",
-    category: "medical-equipment",
-    description:
-      "Timely delivery and setup of an oxygen concentrator as part of a patient's care plan.",
-    imagePlaceholder: "Technician delivering and setting up an oxygen concentrator",
-    featured: false,
-  },
-  {
-    id: "caregiver-skills-training",
-    title: "Caregiver Skills Training",
-    category: "training",
-    description:
-      "Our caregivers taking part in ongoing skills training to keep every home visit consistent and safe.",
-    imagePlaceholder: "Caregivers in a skills training session",
+      "Essential medical equipment including patient monitoring and oxygen support for home-based care.",
+    image: "/images/gallery/medical-equipment1.jpg",
+    imageAlt: "Patient monitoring and oxygen equipment for home healthcare",
     featured: true,
   },
   {
-    id: "cpr-emergency-training",
-    title: "CPR & Emergency Response Training",
-    category: "training",
+    id: "hospital-bed-for-home-care",
+    title: "Hospital Bed for Home Care",
+    category: "medical-equipment",
     description:
-      "Hands-on CPR and emergency response training, part of every caregiver's certification.",
-    imagePlaceholder: "Training session on CPR and emergency response",
+      "Hospital-style patient bed designed to provide comfort, positioning, and safer care in a home environment.",
+    image: "/images/gallery/medical-equipment3.jpg",
+    imageAlt: "Hospital bed for home healthcare and patient care",
     featured: false,
   },
   {
-    id: "community-health-camp",
-    title: "Community Health Camp",
-    category: "community-care",
+    id: "medical-equipment-for-home-care",
+    title: "Medical Equipment for Home Care",
+    category: "medical-equipment",
     description:
-      "Our team hosting a free community health check-up camp for families in Jaipur.",
-    imagePlaceholder: "Community health camp with families being checked up",
+      "Essential healthcare equipment designed to support safe, comfortable, and effective patient care at home.",
+    image: "/images/gallery/medical-equipment2.jpg",
+    imageAlt: "Medical equipment used for home healthcare",
     featured: false,
   },
   {
-    id: "senior-wellness-outreach",
-    title: "Senior Wellness Outreach",
-    category: "community-care",
+    id: "physiotherapy-mobility-support",
+    title: "Physiotherapy & Mobility Support",
+    category: "physiotherapy",
     description:
-      "A wellness outreach session focused on senior health awareness in a local neighborhood.",
-    imagePlaceholder: "Senior wellness outreach session in the community",
-    featured: false,
-  },
-  {
-    id: "home-nursing-family-briefing",
-    title: "Family Care Briefing",
-    category: "home-nursing",
-    description:
-      "A nurse walking a patient's family through the day's care plan before starting a visit.",
-    imagePlaceholder: "Nurse briefing a patient's family on the care plan",
-    featured: false,
-  },
-  {
-    id: "elder-care-mealtime-support",
-    title: "Mealtime Support",
-    category: "elder-care",
-    description:
-      "A caregiver assisting an elderly patient with a nutritious, comfortable mealtime.",
-    imagePlaceholder: "Caregiver assisting a senior patient during a meal",
-    featured: false,
+      "Personalized exercises and guided movement to support strength, mobility, balance, and recovery.",
+    image: "/images/gallery/physiotherapist.jpg",
+    imageAlt: "Physiotherapist assisting a patient with mobility exercises",
+    featured: true,
   },
 ];
