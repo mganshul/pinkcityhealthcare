@@ -26,6 +26,26 @@ export function ServicePageTemplate({ data }: ServicePageTemplateProps) {
     data.relatedServices.includes(service.href)
   );
 
+  const url = `${siteConfig.url}/services/${data.slug}`;
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: data.title,
+    name: data.seo?.title ?? data.title,
+    description: data.seo?.description ?? data.description,
+    url,
+    provider: {
+      "@type": "MedicalBusiness",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      telephone: siteConfig.contact.phone,
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Jaipur",
+    },
+  };
+
   return (
     <PageLayout
       hero={
@@ -40,6 +60,11 @@ export function ServicePageTemplate({ data }: ServicePageTemplateProps) {
         />
       }
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+
       <ContentSection title="Overview">
         <p>{data.description}</p>
       </ContentSection>

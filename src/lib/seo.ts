@@ -11,7 +11,20 @@ export const primaryKeywords = [
   "Physiotherapy at Home Jaipur",
 ] as const;
 
-export const defaultTitle = `${siteConfig.name} | ${siteConfig.tagline}`;
+// Homepage <title> — this is what ranks and shows in search results, so it
+// leads with the primary local keyword rather than the tagline (the tagline
+// isn't rendered anywhere in the UI, only here).
+export const defaultTitle = `${siteConfig.name} | Home Healthcare Services in Jaipur`;
+
+// Real photo used as the fallback social share image wherever a page doesn't
+// have a more specific one — keeps OG/Twitter cards from showing a blank
+// preview. Swap for a dedicated 1200x630 social image if one is ever made.
+export const defaultOgImage = {
+  url: "/images/about/about-final.png",
+  width: 1536,
+  height: 1024,
+  alt: `The ${siteConfig.name} team`,
+};
 
 // Shared metadata every page inherits (keywords, canonical base, Open Graph,
 // Twitter card). Page-level metadata only needs to override `title` and
@@ -27,11 +40,13 @@ export const baseMetadata: Metadata = {
     siteName: siteConfig.name,
     locale: "en_IN",
     type: "website",
+    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
     title: defaultTitle,
     description: siteConfig.description,
+    images: [defaultOgImage.url],
   },
 };
 
@@ -42,6 +57,8 @@ interface PageMetadataOptions {
   /** e.g. "/about" — used to build the canonical URL and Open Graph url. */
   path: string;
   keywords?: readonly string[];
+  /** Overrides the site default social-share image for this page. */
+  image?: typeof defaultOgImage;
 }
 
 // Every internal page should export its metadata via this, not hand-roll
@@ -52,6 +69,7 @@ export function buildPageMetadata({
   description = siteConfig.description,
   path,
   keywords = primaryKeywords,
+  image = defaultOgImage,
 }: PageMetadataOptions): Metadata {
   const url = `${siteConfig.url}${path}`;
   const fullTitle = `${title} | ${siteConfig.name}`;
@@ -68,11 +86,13 @@ export function buildPageMetadata({
       siteName: siteConfig.name,
       locale: "en_IN",
       type: "website",
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images: [image.url],
     },
   };
 }
