@@ -65,7 +65,7 @@ export function Hero() {
               className="bg-brand-pink shadow-brand-pink/50 size-2 rounded-full shadow-[0_0_8px_2px]"
               aria-hidden="true"
             />
-            <span className="text-xs font-semibold tracking-wide text-white/90 uppercase">
+            <span className="text-xs font-semibold tracking-wide text-white/90">
               Home Healthcare · Jaipur
             </span>
           </motion.div>

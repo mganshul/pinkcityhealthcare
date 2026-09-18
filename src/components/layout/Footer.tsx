@@ -64,7 +64,7 @@ export function Footer() {
           <h3 className="font-heading text-background text-sm font-semibold tracking-wide uppercase">
             Our Services
           </h3>
-          <ul className="mt-4 flex flex-col gap-2.5 text-sm">
+          <ul className="mt-4 columns-2 gap-x-6 text-sm [&>li]:mb-2.5 [&>li]:break-inside-avoid">
             {services.map((service) => (
               <li key={service.href}>
                 <Link

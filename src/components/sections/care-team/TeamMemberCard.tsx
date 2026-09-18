@@ -54,7 +54,7 @@ export function TeamMemberCard({
 
       <div className="flex flex-1 flex-col items-center gap-3 p-6 text-center">
         <div className="flex flex-col gap-1.5">
-          <h3 className="font-heading text-foreground text-lg font-semibold">
+          <h3 className="font-heading text-foreground flex min-h-16 items-center justify-center text-lg font-semibold">
             {name ?? role}
           </h3>
           {name && (

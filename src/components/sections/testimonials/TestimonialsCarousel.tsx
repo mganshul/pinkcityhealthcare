@@ -88,13 +88,18 @@ export function TestimonialsCarousel({
               aria-label={`Go to testimonial from ${testimonial.name}`}
               aria-current={activeIndex === index ? "true" : undefined}
               onClick={() => swiperRef.current?.slideTo(index)}
-              className={cn(
-                "focus-visible:ring-ring size-2 rounded-full outline-none transition-colors duration-300 motion-reduce:transition-none focus-visible:ring-3",
-                activeIndex === index
-                  ? "bg-primary"
-                  : "bg-border hover:bg-muted-foreground/40",
-              )}
-            />
+              className="group focus-visible:ring-ring flex size-6 items-center justify-center rounded-full outline-none focus-visible:ring-3"
+            >
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "size-2 rounded-full transition-colors duration-300 motion-reduce:transition-none",
+                  activeIndex === index
+                    ? "bg-primary"
+                    : "bg-border group-hover:bg-muted-foreground/40",
+                )}
+              />
+            </button>
           ))}
         </div>
 

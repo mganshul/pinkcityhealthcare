@@ -21,7 +21,7 @@ export function PersonaCard({
     <Link
       href={href}
       className={cn(
-        "group border-border bg-card focus-visible:ring-ring flex h-full flex-col gap-4 rounded-xl border p-6 shadow-sm outline-none transition-all duration-300 ease-out motion-reduce:transition-none hover:-translate-y-1 hover:shadow-md focus-visible:ring-3 focus-visible:ring-offset-2",
+        "group border-border bg-card focus-visible:ring-ring flex h-full flex-col gap-3.5 rounded-xl border p-6 shadow-sm outline-none transition-all duration-300 ease-out motion-reduce:transition-none hover:-translate-y-1 hover:shadow-md focus-visible:ring-3 focus-visible:ring-offset-2",
         className,
       )}
     >
@@ -44,7 +44,7 @@ export function PersonaCard({
       <span className="text-primary mt-auto flex items-center gap-1.5 text-sm font-semibold">
         View Care Plan
         <ArrowRight
-          className="size-4 transition-transform duration-300 motion-reduce:transition-none group-hover:translate-x-1"
+          className="size-3.5 transition-transform duration-300 motion-reduce:transition-none group-hover:translate-x-1"
           aria-hidden="true"
         />
       </span>
